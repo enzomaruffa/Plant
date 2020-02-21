@@ -15,25 +15,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koY-3R-OQF" userLabel="PlantRoot">
-                                <rect key="frame" x="20" y="124" width="374" height="728"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koY-3R-OQF" userLabel="Random1">
+                                <rect key="frame" x="40" y="468" width="167" height="394"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fag-hq-GEy" appends="YES" id="yKD-ET-XXS"/>
+                                </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2q-kF-TaX">
+                                <rect key="frame" x="227" y="468" width="147" height="394"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zQz-89-eIL" appends="YES" id="kbY-pS-a5J"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-xV-IEr">
+                                <rect key="frame" x="40" y="44" width="334" height="394"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-eQ-dfV">
+                                <rect key="frame" x="184.5" y="438" width="45" height="30"/>
+                                <state key="normal" title="Morph"/>
+                                <connections>
+                                    <action selector="morphPlants:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BJq-NY-XTM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="koY-3R-OQF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="7KD-yJ-Thq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="koY-3R-OQF" secondAttribute="bottom" constant="10" id="Hi3-hz-IPa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="koY-3R-OQF" secondAttribute="trailing" constant="20" id="ZGT-F9-g9W"/>
-                            <constraint firstItem="koY-3R-OQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rB5-Z3-qN1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ozR-xV-IEr" secondAttribute="trailing" constant="40" id="B6B-gs-0FD"/>
+                            <constraint firstItem="Hiq-eQ-dfV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FvR-XL-VJo"/>
+                            <constraint firstItem="koY-3R-OQF" firstAttribute="height" secondItem="L2q-kF-TaX" secondAttribute="height" id="Fx6-qj-EeM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L2q-kF-TaX" secondAttribute="trailing" constant="40" id="H1N-Ll-SKo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="koY-3R-OQF" secondAttribute="bottom" id="Hi3-hz-IPa"/>
+                            <constraint firstItem="ozR-xV-IEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="JKk-3Z-3rS"/>
+                            <constraint firstItem="L2q-kF-TaX" firstAttribute="leading" secondItem="koY-3R-OQF" secondAttribute="trailing" constant="20" id="Ovv-U1-QmC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L2q-kF-TaX" secondAttribute="bottom" id="PpE-KS-3EG"/>
+                            <constraint firstItem="ozR-xV-IEr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aek-6i-CJa"/>
+                            <constraint firstItem="Hiq-eQ-dfV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dCS-2r-lJa"/>
+                            <constraint firstItem="ozR-xV-IEr" firstAttribute="bottom" secondItem="Hiq-eQ-dfV" secondAttribute="top" id="eMr-q4-Kxp"/>
+                            <constraint firstItem="L2q-kF-TaX" firstAttribute="top" secondItem="Hiq-eQ-dfV" secondAttribute="bottom" id="k9J-8g-MRb"/>
+                            <constraint firstItem="L2q-kF-TaX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="20" id="mO3-hP-Hkp"/>
+                            <constraint firstItem="koY-3R-OQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="rB5-Z3-qN1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="plantRoot" destination="koY-3R-OQF" id="9oL-RA-zKE"/>
+                        <outlet property="morphed" destination="ozR-xV-IEr" id="PlX-Wq-4NV"/>
+                        <outlet property="random1" destination="koY-3R-OQF" id="9oL-RA-zKE"/>
+                        <outlet property="random2" destination="L2q-kF-TaX" id="CBp-t8-bvv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fag-hq-GEy">
+                    <connections>
+                        <action selector="random1Pressed:" destination="BYZ-38-t0r" id="5IA-uO-DHd"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zQz-89-eIL">
+                    <connections>
+                        <action selector="random2Pressed:" destination="BYZ-38-t0r" id="62r-Ws-nUO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="139" y="130"/>
         </scene>

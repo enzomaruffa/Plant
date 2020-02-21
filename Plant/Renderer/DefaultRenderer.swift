@@ -16,7 +16,6 @@ class DefaultRenderer: PlantRenderer {
     /// The maximum angle a steam branch can grow. This is relative to the ground position, used so that a future branch can't go downwards. Assumes 0 is top
     static var maxAbsoluteAngle: CGFloat = CGFloat.pi/8 * 5
     
-    
     typealias R = PseurandomGenerator
     
     func render(plant: Plant, in frame: CGRect) -> [CALayer] {

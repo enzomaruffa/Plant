@@ -20,11 +20,11 @@ class Plant {
     var stemColor: UIColor
     
     /// The probability of a branch growing from the first layer.
-    @Ranged(minimum: 0, maximum: 0.7)
+    @Ranged(minimum: 0.2, maximum: 0.8)
     var branchingProbability: Double = Double.random(in: 0...1)
     
     /// The probability of a branch growing from the first layer.
-    @Ranged(minimum: 1, maximum: 6)
+    @Ranged(minimum: 1, maximum: 5)
     var averageStemLayers: Int = Int.random(in: 1...5)
     
     /// The probability of a flower growing from a branch tip.
@@ -43,7 +43,7 @@ class Plant {
         stemColor = UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
     }
     
-    convenience init(stemLength: Double,
+    convenience init(stemLengthProportion: Double,
                      stemColor: UIColor,
                      branchingProbability: Double,
                      averageStemLayers: Int,
@@ -52,7 +52,7 @@ class Plant {
                      stemAngleFactor: Double) {
         
         self.init()
-        self.stemLengthProportion = stemLength
+        self.stemLengthProportion = stemLengthProportion
         self.stemColor = stemColor
         self.branchingProbability = branchingProbability
         self.averageStemLayers = averageStemLayers

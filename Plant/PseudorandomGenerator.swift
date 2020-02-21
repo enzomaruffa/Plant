@@ -49,13 +49,52 @@ class PseurandomGenerator {
         
         return CGFloat(value)
     }
+    
+    
+    static func randomClosed(_ minimum: Double, _ maximum: Double) -> Double {
+        let random = GKRandomSource()
+        
+        let average = (minimum + maximum) / 2
+        let deviation = (maximum - average) / 3
+        
+        let generator = GaussianDistribution(randomSource: random, mean: Float(average), deviation: Float(deviation))
+        
+        var value = generator.nextDouble()
+        
+        value = min(value, maximum)
+        value = max(value, minimum)
+        
+        return Double(value)
+    }
+    
+    static func randomClosed(_ mean: Double, _ sigma: Double, minimum: Double, maximum: Double) -> Double {
+        let random = GKRandomSource()
+        
+        let generator = GaussianDistribution(randomSource: random, mean: Float(mean), deviation: Float(sigma))
+        
+        var value = generator.nextDouble()
+        
+        value = min(value, maximum)
+        value = max(value, minimum)
+        
+        return Double(value)
+    }
+    
+    static func random(_ mean: Double, _ sigma: Double) -> Double {
+        let random = GKRandomSource()
+        
+        let generator = GaussianDistribution(randomSource: random, mean: Float(mean), deviation: Float(sigma))
+        let value = generator.nextDouble()
+        
+        return value
+    }
 }
 
 class GaussianDistribution {
     private let randomSource: GKRandomSource
     let mean: Float
     let deviation: Float
-
+    
     init(randomSource: GKRandomSource, mean: Float, deviation: Float) {
         self.randomSource = randomSource
         self.mean = mean
@@ -67,15 +106,27 @@ class GaussianDistribution {
         self.mean = (maximum - minimum) / 2
         self.deviation = (self.mean - minimum) / 3
     }
-
+    
     func nextCGFloat() -> CGFloat {
         guard deviation > 0 else { return CGFloat(mean) }
-
+        
         let x1 = randomSource.nextUniform()
         let x2 = randomSource.nextUniform()
         let z1 = sqrt(-2 * log(x1)) * cos(2 * Float.pi * x2)
-
+        
         // Convert z1 from the Standard Normal Distribution to our Normal Distribution
         return CGFloat(z1 * deviation + mean)
     }
+    
+    func nextDouble() -> Double {
+        guard deviation > 0 else { return Double(mean) }
+        
+        let x1 = randomSource.nextUniform()
+        let x2 = randomSource.nextUniform()
+        let z1 = sqrt(-2 * log(x1)) * cos(2 * Float.pi * x2)
+        
+        // Convert z1 from the Standard Normal Distribution to our Normal Distribution
+        return Double(z1 * deviation + mean)
+    }
+    
 }

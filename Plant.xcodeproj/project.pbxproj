@@ -19,7 +19,10 @@
 		C030BB7B23FFFA9D008EAE9E /* PlantRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */; };
 		C030BB7D23FFFAD3008EAE9E /* DefaultRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */; };
 		C030BB7F24001107008EAE9E /* PseudorandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */; };
-		C030BB81240011EC008EAE9E /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB80240011EC008EAE9E /* CGExtensions.swift */; };
+		C030BB81240011EC008EAE9E /* CG+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB80240011EC008EAE9E /* CG+.swift */; };
+		C030BB83240048BD008EAE9E /* PlantMorpher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB82240048BD008EAE9E /* PlantMorpher.swift */; };
+		C030BB882400490A008EAE9E /* GaussianPlantMorpher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */; };
+		C030BB8A24004A1D008EAE9E /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB8924004A1D008EAE9E /* UIColor+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,10 @@
 		C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRenderer.swift; sourceTree = "<group>"; };
 		C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRenderer.swift; sourceTree = "<group>"; };
 		C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudorandomGenerator.swift; sourceTree = "<group>"; };
-		C030BB80240011EC008EAE9E /* CGExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtensions.swift; sourceTree = "<group>"; };
+		C030BB80240011EC008EAE9E /* CG+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CG+.swift"; sourceTree = "<group>"; };
+		C030BB82240048BD008EAE9E /* PlantMorpher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantMorpher.swift; sourceTree = "<group>"; };
+		C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaussianPlantMorpher.swift; sourceTree = "<group>"; };
+		C030BB8924004A1D008EAE9E /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,12 +104,13 @@
 				C030BB5D23FFF3A8008EAE9E /* Assets.xcassets */,
 				C030BB5F23FFF3A8008EAE9E /* LaunchScreen.storyboard */,
 				C030BB6223FFF3A8008EAE9E /* Info.plist */,
-				C030BB7623FFF3BF008EAE9E /* Plant.swift */,
+				C030BB85240048EC008EAE9E /* Model */,
 				C030BB7823FFF67B008EAE9E /* RangedWrapper.swift */,
-				C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */,
-				C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */,
+				C030BB86240048F2008EAE9E /* Renderer */,
 				C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */,
-				C030BB80240011EC008EAE9E /* CGExtensions.swift */,
+				C030BB84240048E0008EAE9E /* Extensions */,
+				C030BB82240048BD008EAE9E /* PlantMorpher.swift */,
+				C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -115,6 +122,32 @@
 				C030BB6D23FFF3A8008EAE9E /* Info.plist */,
 			);
 			path = PlantTests;
+			sourceTree = "<group>";
+		};
+		C030BB84240048E0008EAE9E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C030BB80240011EC008EAE9E /* CG+.swift */,
+				C030BB8924004A1D008EAE9E /* UIColor+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C030BB85240048EC008EAE9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C030BB7623FFF3BF008EAE9E /* Plant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C030BB86240048F2008EAE9E /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */,
+				C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */,
+			);
+			path = Renderer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,15 +251,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C030BB81240011EC008EAE9E /* CGExtensions.swift in Sources */,
+				C030BB81240011EC008EAE9E /* CG+.swift in Sources */,
+				C030BB882400490A008EAE9E /* GaussianPlantMorpher.swift in Sources */,
 				C030BB5923FFF3A6008EAE9E /* ViewController.swift in Sources */,
 				C030BB7723FFF3BF008EAE9E /* Plant.swift in Sources */,
 				C030BB7B23FFFA9D008EAE9E /* PlantRenderer.swift in Sources */,
+				C030BB8A24004A1D008EAE9E /* UIColor+.swift in Sources */,
 				C030BB7D23FFFAD3008EAE9E /* DefaultRenderer.swift in Sources */,
 				C030BB7923FFF67B008EAE9E /* RangedWrapper.swift in Sources */,
 				C030BB5523FFF3A6008EAE9E /* AppDelegate.swift in Sources */,
 				C030BB7F24001107008EAE9E /* PseudorandomGenerator.swift in Sources */,
 				C030BB5723FFF3A6008EAE9E /* SceneDelegate.swift in Sources */,
+				C030BB83240048BD008EAE9E /* PlantMorpher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
