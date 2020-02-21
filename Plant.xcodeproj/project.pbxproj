@@ -14,6 +14,12 @@
 		C030BB5E23FFF3A8008EAE9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C030BB5D23FFF3A8008EAE9E /* Assets.xcassets */; };
 		C030BB6123FFF3A8008EAE9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C030BB5F23FFF3A8008EAE9E /* LaunchScreen.storyboard */; };
 		C030BB6C23FFF3A8008EAE9E /* PlantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB6B23FFF3A8008EAE9E /* PlantTests.swift */; };
+		C030BB7723FFF3BF008EAE9E /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7623FFF3BF008EAE9E /* Plant.swift */; };
+		C030BB7923FFF67B008EAE9E /* RangedWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7823FFF67B008EAE9E /* RangedWrapper.swift */; };
+		C030BB7B23FFFA9D008EAE9E /* PlantRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */; };
+		C030BB7D23FFFAD3008EAE9E /* DefaultRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */; };
+		C030BB7F24001107008EAE9E /* PseudorandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */; };
+		C030BB81240011EC008EAE9E /* CGExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB80240011EC008EAE9E /* CGExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		C030BB6723FFF3A8008EAE9E /* PlantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C030BB6B23FFF3A8008EAE9E /* PlantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTests.swift; sourceTree = "<group>"; };
 		C030BB6D23FFF3A8008EAE9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C030BB7623FFF3BF008EAE9E /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
+		C030BB7823FFF67B008EAE9E /* RangedWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangedWrapper.swift; sourceTree = "<group>"; };
+		C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRenderer.swift; sourceTree = "<group>"; };
+		C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRenderer.swift; sourceTree = "<group>"; };
+		C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PseudorandomGenerator.swift; sourceTree = "<group>"; };
+		C030BB80240011EC008EAE9E /* CGExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,12 @@
 				C030BB5D23FFF3A8008EAE9E /* Assets.xcassets */,
 				C030BB5F23FFF3A8008EAE9E /* LaunchScreen.storyboard */,
 				C030BB6223FFF3A8008EAE9E /* Info.plist */,
+				C030BB7623FFF3BF008EAE9E /* Plant.swift */,
+				C030BB7823FFF67B008EAE9E /* RangedWrapper.swift */,
+				C030BB7A23FFFA9D008EAE9E /* PlantRenderer.swift */,
+				C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */,
+				C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */,
+				C030BB80240011EC008EAE9E /* CGExtensions.swift */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -200,8 +218,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C030BB81240011EC008EAE9E /* CGExtensions.swift in Sources */,
 				C030BB5923FFF3A6008EAE9E /* ViewController.swift in Sources */,
+				C030BB7723FFF3BF008EAE9E /* Plant.swift in Sources */,
+				C030BB7B23FFFA9D008EAE9E /* PlantRenderer.swift in Sources */,
+				C030BB7D23FFFAD3008EAE9E /* DefaultRenderer.swift in Sources */,
+				C030BB7923FFF67B008EAE9E /* RangedWrapper.swift in Sources */,
 				C030BB5523FFF3A6008EAE9E /* AppDelegate.swift in Sources */,
+				C030BB7F24001107008EAE9E /* PseudorandomGenerator.swift in Sources */,
 				C030BB5723FFF3A6008EAE9E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
