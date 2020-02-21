@@ -32,15 +32,50 @@ class Plant {
     var flowerProbability: Double = Double.random(in: 0.1...0.95)
     
     /// The stem thickness.
-    @Ranged(minimum: 1, maximum: 5)
-    var stemWidth: Double = Double.random(in: 1...5)
+    @Ranged(minimum: 0, maximum: 1)
+    var stemWidth: Double = Double.random(in: 0...1)
     
     /// How probable the stem is to have a more aggressive angle.
     @Ranged(minimum: 0.1, maximum: 1)
     var stemAngleFactor: Double = Double.random(in: 0.05...1)
     
+    /// The radius that the flower core should have
+    @Ranged(minimum: 0, maximum: 1)
+    var flowerCoreRadius: Double = Double.random(in: 0...1)
+
+    /// The color the flower core has
+    var flowerCoreColor: UIColor
+
+    /// The radius that the flower core should have
+    @Ranged(minimum: 1, maximum: 2)
+    var flowerCoreStrokeWidth: Double = Double.random(in: 1...2)
+
+    /// The color the flower core has
+    var flowerCoreStrokeColor: UIColor
+//
+//    /// How many layers the flower has
+//    @Ranged(minimum: 1, maximum: 7)
+//    var flowerLayersCount: Double = Double.random(in: 1...7)
+//
+//    /// How probable the stem is to have a more aggressive angle.
+//    @Ranged(minimum: 1, maximum: 5)
+//    var petalRadius: Double = Double.random(in: 1...7)
+//
+    
+//    - Número de pétalas na primera camada
+//    - Número de pétalas na última camada
+//    - Cor da primeira camada de pétala
+//    - Cor da segunda camada de pétala
+//    - Variação de cor (chance de mudar a cor na hora de gerar uma camada)
+//    - Cor da borda da pétala
+//    - Grossura da borda da pétala
+//    - Sharpness da primeira camada
+//    - Sharpness da segunda camada
+    
     init() {
-        stemColor = UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
+        stemColor = UIColor.randomColor()
+        flowerCoreColor = UIColor.randomColor()
+        flowerCoreStrokeColor = UIColor.randomColor()
     }
     
     convenience init(stemLengthProportion: Double,
@@ -49,7 +84,11 @@ class Plant {
                      averageStemLayers: Int,
                      flowerProbability: Double,
                      stemWidth: Double,
-                     stemAngleFactor: Double) {
+                     stemAngleFactor: Double,
+                     flowerCoreRadius: Double,
+                     flowerCoreColor: UIColor,
+                     flowerCoreStrokeWidth: Double,
+                     flowerCoreStrokeColor: UIColor) {
         
         self.init()
         self.stemLengthProportion = stemLengthProportion
@@ -59,6 +98,10 @@ class Plant {
         self.flowerProbability = flowerProbability
         self.stemWidth = stemWidth
         self.stemAngleFactor = stemAngleFactor
+        self.flowerCoreRadius = flowerCoreRadius
+        self.flowerCoreColor = flowerCoreColor
+        self.flowerCoreStrokeWidth = flowerCoreStrokeWidth
+        self.flowerCoreStrokeColor = flowerCoreStrokeColor
     }
     
 }

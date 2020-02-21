@@ -26,13 +26,17 @@ extension UIColor {
 
         color.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
         
-        let red = PseurandomGenerator.randomClosed(red1, red2)
-        let blue = PseurandomGenerator.randomClosed(blue1, blue2)
-        let green = PseurandomGenerator.randomClosed(green1, green2)
-        let alpha = PseurandomGenerator.randomClosed(alpha1, alpha2)
+        let red = PseurandomGenerator.randomClosed(first: red1, second: red2)
+        let blue = PseurandomGenerator.randomClosed(first: blue1, second:  blue2)
+        let green = PseurandomGenerator.randomClosed(first: green1, second:  green2)
+        let alpha = PseurandomGenerator.randomClosed(first: alpha1, second:  alpha2)
         
         return UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
         
+    }
+    
+    static func randomColor() -> UIColor {
+        return UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
     }
     
 }

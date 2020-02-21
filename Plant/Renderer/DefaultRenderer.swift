@@ -16,10 +16,16 @@ class DefaultRenderer: PlantRenderer {
     /// The maximum angle a steam branch can grow. This is relative to the ground position, used so that a future branch can't go downwards. Assumes 0 is top
     static var maxAbsoluteAngle: CGFloat = CGFloat.pi/8 * 5
     
+    /// The stem width that will be multiplied by the stemWidth
+    static var stemWidthBasis: CGFloat = 2
+    
+    /// The flower width that will be multiplied by the plantCoreSize
+    static var flowerCoreRadiusBasis: Double = 3
+    
     typealias R = PseurandomGenerator
     
     func render(plant: Plant, in frame: CGRect) -> [CALayer] {
-        let rootLayer = CALayer()
+        let rootLayer = CAShapeLayer()
         rootLayer.frame = frame
         
         /* Before drawing the plant, we define belts
@@ -28,12 +34,14 @@ class DefaultRenderer: PlantRenderer {
         */
         let beltHeight = frame.height / CGFloat(Plant.maximumStemLayers + 1)
         
-        var stemLayers = [CALayer]()
+        var stemLayers = [CAShapeLayer]()
         var branchTips = [CGPoint]()
         
         let plantStemOrigin = CGPoint(x: frame.width/2, y: frame.height)
         
         var stemsToGenerate: [(origin: CGPoint, iteration: Int)] = [(origin: plantStemOrigin, iteration: 1)]
+        
+        // Used inside the loop to control if another branch should happen
         
         while !stemsToGenerate.isEmpty {
             let currentStem = stemsToGenerate.first!
@@ -49,8 +57,11 @@ class DefaultRenderer: PlantRenderer {
             
             // See if a branch should happen
             // we use a quadratic factor so top branches branch often
-            let maximumSquared = Double(Plant.maximumStemLayers * Plant.maximumStemLayers)
-            let iterationSquared = Double(currentStem.iteration * currentStem.iteration)
+            let maximumSquared = Double((Plant.maximumStemLayers-2) * (Plant.maximumStemLayers-2))
+            
+            let currentIterationAdjusted = max(1, currentStem.iteration-2)
+            
+            let iterationSquared = Double(currentIterationAdjusted * currentIterationAdjusted)
             let branchingIterationFactor = iterationSquared / maximumSquared
             let currentProbability = plant.branchingProbability * branchingIterationFactor
             
@@ -58,13 +69,19 @@ class DefaultRenderer: PlantRenderer {
                 stemsToGenerate.removeFirst()
             }
             
-            // Removing first stem to generate
+        }
+       
+        var flowerLayers = [CALayer]()
+        
+        for branchTip in branchTips {
+            let layers = createFlower(at: branchTip, with: plant)
+            flowerLayers += layers
         }
         
-        return [rootLayer] + stemLayers
+        return [rootLayer] + stemLayers + flowerLayers
     }
     
-    private func createStem(fromPlant plant: Plant, withOrigin origin: CGPoint, maximumHeight: CGFloat , currentIteration: Int) -> (layer: CALayer, endPoint: CGPoint, final: Bool) {
+    private func createStem(fromPlant plant: Plant, withOrigin origin: CGPoint, maximumHeight: CGFloat , currentIteration: Int) -> (layer: CAShapeLayer, endPoint: CGPoint, final: Bool) {
         
         let stemColor = plant.stemColor
         
@@ -79,8 +96,6 @@ class DefaultRenderer: PlantRenderer {
         // ANGLE FINDING
         // Loads of math shit behind this in papers.
         let stemDeviationFactor: CGFloat = CGFloat(9 - (7 * plant.stemAngleFactor))
-        
-        print(Self.maxAbsoluteAngle, Self.minAbsoluteAngle)
         
         // Divide by two to get only one side
         let stemDeviation = ((Self.maxAbsoluteAngle - Self.minAbsoluteAngle) / 2) / stemDeviationFactor
@@ -105,10 +120,10 @@ class DefaultRenderer: PlantRenderer {
         stemLayer.path = stemPath.cgPath
         stemLayer.lineCap = .round
         stemLayer.lineJoin = .round
-        stemLayer.lineWidth = 4 * CGFloat(plant.stemWidth) * currentIterationFactor
+        stemLayer.lineWidth = (Self.stemWidthBasis * (4 * CGFloat(plant.stemWidth)) * currentIterationFactor)
         stemLayer.strokeColor = stemColor.cgColor
         
-        if Int.random(in: -1...1) + currentIteration < min(plant.averageStemLayers, Plant.maximumStemLayers) {
+        if currentIteration < min(plant.averageStemLayers, Plant.maximumStemLayers) {
             return (layer: stemLayer, endPoint: newPoint, final: false)
         } else {
             return (layer: stemLayer, endPoint: newPoint, final: true)
@@ -116,5 +131,28 @@ class DefaultRenderer: PlantRenderer {
         
     }
     
+    private func createFlower(at origin: CGPoint, with plant: Plant) -> [CAShapeLayer] {
+        let corePath = UIBezierPath()
+        let coreLayer = CAShapeLayer()
+        
+        let newRadius = plant.flowerCoreRadius * 7 + Self.flowerCoreRadiusBasis
+        corePath.move(to: origin)
+        
+        corePath.addArc(withCenter: origin, radius: CGFloat(newRadius), startAngle: 0, endAngle: 0.001, clockwise: false)
+//        corePath.close()
+        
+        coreLayer.path = corePath.cgPath
+        coreLayer.lineCap = .round
+        coreLayer.lineJoin = .round
+        coreLayer.fillColor = plant.flowerCoreColor.cgColor
+        coreLayer.lineWidth = CGFloat(plant.flowerCoreStrokeWidth)
+        coreLayer.strokeColor = plant.flowerCoreStrokeColor.cgColor
+        
+        
+        
+        coreLayer.strokeStart = 1/7
+        
+        return [coreLayer]
+    }
     // Check replicator layer for leafs!
 }

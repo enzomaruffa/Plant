@@ -109,8 +109,7 @@
 				C030BB86240048F2008EAE9E /* Renderer */,
 				C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */,
 				C030BB84240048E0008EAE9E /* Extensions */,
-				C030BB82240048BD008EAE9E /* PlantMorpher.swift */,
-				C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */,
+				C030BB8B24005E60008EAE9E /* PlantMorpher */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -148,6 +147,15 @@
 				C030BB7C23FFFAD3008EAE9E /* DefaultRenderer.swift */,
 			);
 			path = Renderer;
+			sourceTree = "<group>";
+		};
+		C030BB8B24005E60008EAE9E /* PlantMorpher */ = {
+			isa = PBXGroup;
+			children = (
+				C030BB82240048BD008EAE9E /* PlantMorpher.swift */,
+				C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */,
+			);
+			path = PlantMorpher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -28,6 +28,13 @@ class PseurandomGenerator {
         return CGFloat(value)
     }
     
+    static func randomClosed(first: CGFloat, second: CGFloat) -> CGFloat {
+        let minimum = min(first, second)
+        let maximum = max(first, second)
+        
+        return randomClosed(minimum, maximum)
+    }
+    
     static func randomClosed(_ mean: CGFloat, _ sigma: CGFloat, minimum: CGFloat, maximum: CGFloat) -> CGFloat {
         let random = GKRandomSource()
         
@@ -50,7 +57,6 @@ class PseurandomGenerator {
         return CGFloat(value)
     }
     
-    
     static func randomClosed(_ minimum: Double, _ maximum: Double) -> Double {
         let random = GKRandomSource()
         
@@ -65,6 +71,13 @@ class PseurandomGenerator {
         value = max(value, minimum)
         
         return Double(value)
+    }
+    
+    static func randomClosed(first: Double, second: Double) -> Double {
+        let minimum = min(first, second)
+        let maximum = max(first, second)
+        
+        return randomClosed(minimum, maximum)
     }
     
     static func randomClosed(_ mean: Double, _ sigma: Double, minimum: Double, maximum: Double) -> Double {
