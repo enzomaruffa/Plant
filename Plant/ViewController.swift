@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     private var morphedPlant: Plant!
     
     let renderer: PlantRenderer = DefaultRenderer()
-    let plantMorpher: PlantMorpher = GaussianPlantMorpher()
+    let plantMorpher: PlantMorpher = LinearPlantMorpher()
     
     override func viewDidLoad() {
         super.viewDidLoad()
