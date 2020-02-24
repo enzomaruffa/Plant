@@ -132,6 +132,7 @@ class DefaultRenderer: PlantRenderer {
     }
     
     private func createFlower(at origin: CGPoint, with plant: Plant) -> [CAShapeLayer] {
+        // Creates flower core
         let corePath = UIBezierPath()
         let coreLayer = CAShapeLayer()
         
@@ -148,11 +149,35 @@ class DefaultRenderer: PlantRenderer {
         coreLayer.lineWidth = CGFloat(plant.flowerCoreStrokeWidth)
         coreLayer.strokeColor = plant.flowerCoreStrokeColor.cgColor
         
-        
-        
         coreLayer.strokeStart = 1/7
         
-        return [coreLayer]
+        let petalLayer = CAShapeLayer()
+        
+        let petalPath1 = UIBezierPath()
+        petalPath1.move(to: origin)
+                
+        petalPath1.addLine(to: origin + CGPoint(x: -newRadius, y: 0))
+        petalPath1.addCurve(to: origin + CGPoint(x: 0, y: newRadius * 3), controlPoint1: origin + CGPoint(x: -newRadius, y: newRadius), controlPoint2: origin + CGPoint(x: newRadius, y: newRadius/1.5))
+        
+        let petalPath2 = UIBezierPath()
+        petalPath2.move(to: origin)
+                
+        petalPath2.addLine(to: origin + CGPoint(x: +newRadius, y: 0))
+        petalPath2.addCurve(to: origin + CGPoint(x: 0, y: newRadius * 3), controlPoint1: origin + CGPoint(x: +newRadius * 2, y: 0), controlPoint2: origin + CGPoint(x: -newRadius, y: newRadius * 2))
+        
+        petalPath1.append(petalPath2)
+//        petalPath1.close()
+        
+        petalLayer.path = petalPath1.cgPath
+        petalLayer.lineCap = .round
+        petalLayer.lineJoin = .round
+        petalLayer.fillColor = UIColor.yellow.cgColor
+        petalLayer.lineWidth = 1
+        petalLayer.strokeColor = UIColor.red.cgColor
+                
+        petalLayer.strokeStart = 1/7
+                
+        return [petalLayer, coreLayer]
     }
     // Check replicator layer for leafs!
 }
