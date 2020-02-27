@@ -31,7 +31,7 @@ class DefaultRenderer: PlantRenderer {
         /* Before drawing the plant, we define belts
          These belts have a size of the max number of layers + 1. It works like this so we can have
          a numeric value of the max height each stem layer can have. We add 1 so we have space for the flowers inside.
-        */
+         */
         let beltHeight = frame.height / CGFloat(Plant.maximumStemLayers + 1)
         
         var stemLayers = [CAShapeLayer]()
@@ -70,11 +70,11 @@ class DefaultRenderer: PlantRenderer {
             }
             
         }
-       
+        
         var flowerLayers = [CALayer]()
         
         for branchTip in branchTips {
-            let layers = createFlower(at: branchTip, with: plant)
+            let layers = createFlower(at: branchTip, with: plant, andStemHeight: beltHeight)
             flowerLayers += layers
         }
         
@@ -131,16 +131,16 @@ class DefaultRenderer: PlantRenderer {
         
     }
     
-    private func createFlower(at origin: CGPoint, with plant: Plant) -> [CAShapeLayer] {
+    private func createFlower(at origin: CGPoint, with plant: Plant, andStemHeight stemHeight: CGFloat) -> [CAShapeLayer] {
         // Creates flower core
         let corePath = UIBezierPath()
         let coreLayer = CAShapeLayer()
         
-        let newRadius = plant.flowerCoreRadius * 7 + Self.flowerCoreRadiusBasis
+        let plantCoreRadius = plant.flowerCoreRadius * 5 + Self.flowerCoreRadiusBasis
         corePath.move(to: origin)
         
-        corePath.addArc(withCenter: origin, radius: CGFloat(newRadius), startAngle: 0, endAngle: 0.001, clockwise: false)
-//        corePath.close()
+        corePath.addArc(withCenter: origin, radius: CGFloat(plantCoreRadius), startAngle: 0, endAngle: 0.001, clockwise: false)
+        //        corePath.close()
         
         coreLayer.path = corePath.cgPath
         coreLayer.lineCap = .round
@@ -151,22 +151,62 @@ class DefaultRenderer: PlantRenderer {
         
         coreLayer.strokeStart = 1/7
         
+        // Create petals
+        
+        var petalLayers = [CAShapeLayer]()
+        
+        for i in 0..<4 {
+            let angle = CGFloat.pi * 2 / CGFloat(4) * CGFloat(i)
+            let layer = createPetal(withOrigin: origin, angle: angle, plant: plant, coreRadius:
+                CGFloat(plantCoreRadius), stemHeight: stemHeight)
+            petalLayers.append(layer)
+            
+        }
+        
+        return petalLayers + [coreLayer]
+    }
+    
+    private func createPetal(withOrigin origin: CGPoint, angle: CGFloat, plant: Plant, coreRadius: CGFloat, stemHeight: CGFloat) -> CAShapeLayer {
         let petalLayer = CAShapeLayer()
         
         let petalPath1 = UIBezierPath()
         petalPath1.move(to: origin)
-                
-        petalPath1.addLine(to: origin + CGPoint(x: -newRadius, y: 0))
-        petalPath1.addCurve(to: origin + CGPoint(x: 0, y: newRadius * 3), controlPoint1: origin + CGPoint(x: -newRadius, y: newRadius), controlPoint2: origin + CGPoint(x: newRadius, y: newRadius/1.5))
+        
+        var angleSin = sin(angle)
+        angleSin = angleSin > .pi ? -angleSin : angleSin
+        var angleCos = cos(angle)
+        angleCos = angleCos > .pi ? -angleCos : angleCos
+        
+//        var c1AngleSin = sin(angle - .pi/6)
+//        c1AngleSin = c1AngleSin > .pi ? -c1AngleSin : c1AngleSin
+//        var c1AngleCos = cos(angle - .pi/6)
+//        c1AngleCos = c1AngleCos > .pi ? -c1AngleCos : c1AngleCos
+//
+//        var c2AngleSin = sin(angle + .pi/6)
+//        c2AngleSin = c2AngleSin > .pi ? -c2AngleSin : c2AngleSin
+//        var c2AngleCos = cos(angle + .pi/6)
+//        c2AngleCos = c2AngleCos > .pi ? -c2AngleCos : c2AngleCos
+        
+        let petalEnd = origin + CGPoint(x: stemHeight/3 * angleCos, y: stemHeight/3 * angleSin)
+//
+        let path1Offset = origin + CGPoint(x: -coreRadius * angleSin, y: -coreRadius * angleCos)
+//        let path1ControlPoint1 = origin + CGPoint(x: -coreRadius + -coreRadius * c1AngleCos, y: -coreRadius + -coreRadius * c1AngleSin)
+//        let path1ControlPoint2 = origin + CGPoint(x: -coreRadius * 2 + -coreRadius * c1AngleCos, y: coreRadius * 2 + coreRadius * c1AngleSin)
+        
+        petalPath1.addLine(to: path1Offset)
+        petalPath1.addLine(to: petalEnd)
         
         let petalPath2 = UIBezierPath()
         petalPath2.move(to: origin)
-                
-        petalPath2.addLine(to: origin + CGPoint(x: +newRadius, y: 0))
-        petalPath2.addCurve(to: origin + CGPoint(x: 0, y: newRadius * 3), controlPoint1: origin + CGPoint(x: +newRadius * 2, y: 0), controlPoint2: origin + CGPoint(x: -newRadius, y: newRadius * 2))
+        
+        let path2Offset = origin + CGPoint(x: coreRadius * angleSin, y: coreRadius * angleCos)
+//        let path2ControlPoint1 = origin + CGPoint(x: -coreRadius + -coreRadius * c2AngleCos, y: -coreRadius + -coreRadius * c2AngleSin)
+//        let path2ControlPoint2 = origin + CGPoint(x: -coreRadius * 2 + -coreRadius * c2AngleCos, y: coreRadius * 2 + coreRadius * c2AngleSin)
+        
+        petalPath2.addLine(to: path2Offset)
+        petalPath2.addLine(to: petalEnd)
         
         petalPath1.append(petalPath2)
-//        petalPath1.close()
         
         petalLayer.path = petalPath1.cgPath
         petalLayer.lineCap = .round
@@ -174,10 +214,11 @@ class DefaultRenderer: PlantRenderer {
         petalLayer.fillColor = UIColor.yellow.cgColor
         petalLayer.lineWidth = 1
         petalLayer.strokeColor = UIColor.red.cgColor
-                
+        
         petalLayer.strokeStart = 1/7
-                
-        return [petalLayer, coreLayer]
+        
+        return petalLayer
     }
+    
     // Check replicator layer for leafs!
 }

@@ -58,8 +58,8 @@ class Plant {
 //    var flowerLayersCount: Double = Double.random(in: 1...7)
 //
 //    /// How probable the stem is to have a more aggressive angle.
-//    @Ranged(minimum: 1, maximum: 5)
-//    var petalRadius: Double = Double.random(in: 1...7)
+//    @Ranged(minimum: 0.01, maximum: 0.8)
+//    var petalRadius: Double = Double.random(in: 0.01...0.8)
 //
     
 //    - Número de pétalas na primera camada
