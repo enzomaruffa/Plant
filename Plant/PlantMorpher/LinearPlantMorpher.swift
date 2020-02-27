@@ -32,6 +32,17 @@ class LinearPlantMorpher: PlantMorpher {
         let flowerCoreStrokeWidth = (plant1.flowerCoreStrokeWidth + plant2.flowerCoreStrokeWidth) / Double(2)
         let flowerCoreStrokeColor = plant1.flowerCoreStrokeColor.mix(with: plant2.flowerCoreStrokeColor)
         
+        let flowerLayersCount = Int((plant1.flowerLayersCount + plant2.flowerLayersCount) / 2)
+        
+        let petalRadius = (plant1.petalRadius + plant2.petalRadius) / Double(2)
+        
+        let petalsInFirstLayer = Int((plant1.petalsInFirstLayer + plant2.petalsInFirstLayer) / 2)
+        let petalsInLastLayer = Int((plant1.petalsInLastLayer + plant2.petalsInLastLayer) / 2)
+        
+        let petalsFirstLayerColor = plant1.petalsFirstLayerColor.mix(with: plant2.petalsFirstLayerColor)
+        let petalsLastLayerColor = plant1.petalsLastLayerColor.mix(with: plant2.petalsLastLayerColor)
+        let petalStrokeColor = plant1.petalStrokeColor.mix(with: plant2.petalStrokeColor)
+        
         return Plant(stemLengthProportion: stemLengthProportion,
                      stemColor: stemColor,
                      branchingProbability: branchingProbability,
@@ -42,7 +53,14 @@ class LinearPlantMorpher: PlantMorpher {
                      flowerCoreRadius: flowerCoreRadius,
                      flowerCoreColor: flowerCoreColor,
                      flowerCoreStrokeWidth: flowerCoreStrokeWidth,
-                     flowerCoreStrokeColor: flowerCoreStrokeColor)
+                     flowerCoreStrokeColor: flowerCoreStrokeColor,
+                     flowerLayersCount: flowerLayersCount,
+                     petalRadius: petalRadius,
+                     petalsInFirstLayer: petalsInFirstLayer,
+                     petalsInLastLayer: petalsInLastLayer,
+                     petalsFirstLayerColor: petalsFirstLayerColor,
+                     petalsLastLayerColor: petalsLastLayerColor,
+                     petalStrokeColor: petalStrokeColor)
         
     }
     

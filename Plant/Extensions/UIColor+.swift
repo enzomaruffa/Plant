@@ -60,6 +60,31 @@ extension UIColor {
         
     }
     
+    func mix(with color: UIColor, andProportion firstProportion: CGFloat) -> UIColor {
+        
+        var red1: CGFloat = 0
+        var green1: CGFloat = 0
+        var blue1: CGFloat = 0
+        var alpha1: CGFloat = 0
+
+        self.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
+        
+        var red2: CGFloat = 0
+        var green2: CGFloat = 0
+        var blue2: CGFloat = 0
+        var alpha2: CGFloat = 0
+
+        color.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
+        
+        let red = (red1 * firstProportion + red2 * (1 - firstProportion)) / 2
+        let blue = (blue1 * firstProportion + blue2 * (1 - firstProportion)) / 2
+        let green = (green1 * firstProportion + green2 * (1 - firstProportion)) / 2
+        let alpha = (alpha1 * firstProportion + alpha2 * (1 - firstProportion)) / 2
+        
+        return UIColor(displayP3Red: red, green: green, blue: blue, alpha: alpha)
+        
+    }
+    
     static func randomColor() -> UIColor {
         return UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
     }

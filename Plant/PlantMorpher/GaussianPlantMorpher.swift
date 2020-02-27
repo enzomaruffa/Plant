@@ -32,6 +32,17 @@ class GaussianPlantMorpher: PlantMorpher {
         let flowerCoreStrokeWidth = R.randomClosed(first: plant1.flowerCoreStrokeWidth, second:  plant2.flowerCoreStrokeWidth)
         let flowerCoreStrokeColor = plant1.flowerCoreStrokeColor.gaussianMix(with: plant2.flowerCoreStrokeColor)
         
+        let flowerLayersCount = R.randomClosed(first: plant1.flowerLayersCount, second:  plant2.flowerLayersCount)
+        
+        let petalRadius = R.randomClosed(first: plant1.petalRadius, second:  plant2.petalRadius)
+        
+        let petalsInFirstLayer = R.randomClosed(first: plant1.petalsInFirstLayer, second:  plant2.petalsInFirstLayer)
+        let petalsInLastLayer = R.randomClosed(first: plant1.petalsInLastLayer, second:  plant2.petalsInLastLayer)
+        
+        let petalsFirstLayerColor = plant1.petalsFirstLayerColor.gaussianMix(with: plant2.petalsFirstLayerColor)
+        let petalsLastLayerColor = plant1.petalsLastLayerColor.gaussianMix(with: plant2.petalsLastLayerColor)
+        let petalStrokeColor = plant1.petalStrokeColor.gaussianMix(with: plant2.petalStrokeColor)
+        
         return Plant(stemLengthProportion: stemLengthProportion,
                      stemColor: stemColor,
                      branchingProbability: branchingProbability,
@@ -42,7 +53,16 @@ class GaussianPlantMorpher: PlantMorpher {
                      flowerCoreRadius: flowerCoreRadius,
                      flowerCoreColor: flowerCoreColor,
                      flowerCoreStrokeWidth: flowerCoreStrokeWidth,
-                     flowerCoreStrokeColor: flowerCoreStrokeColor)
+                     flowerCoreStrokeColor: flowerCoreStrokeColor,
+                     flowerLayersCount: flowerLayersCount,
+                     petalRadius: petalRadius,
+                     petalsInFirstLayer: petalsInFirstLayer,
+                     petalsInLastLayer: petalsInLastLayer,
+                     petalsFirstLayerColor: petalsFirstLayerColor,
+                     petalsLastLayerColor: petalsLastLayerColor,
+                     petalStrokeColor: petalStrokeColor
+                     )
+        
         
     }
     

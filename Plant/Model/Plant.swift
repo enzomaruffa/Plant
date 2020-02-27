@@ -52,15 +52,35 @@ class Plant {
 
     /// The color the flower core has
     var flowerCoreStrokeColor: UIColor
-//
-//    /// How many layers the flower has
-//    @Ranged(minimum: 1, maximum: 7)
-//    var flowerLayersCount: Double = Double.random(in: 1...7)
-//
-//    /// How probable the stem is to have a more aggressive angle.
-//    @Ranged(minimum: 0.01, maximum: 0.8)
-//    var petalRadius: Double = Double.random(in: 0.01...0.8)
-//
+
+    /// How many layers the flower has
+    @Ranged(minimum: 1, maximum: 7)
+    var flowerLayersCount: Int = Int.random(in: 1...7)
+
+    /// The petal size proportional to the current belt (stem) length
+    @Ranged(minimum: 0.01, maximum: 0.8)
+    var petalRadius: Double = Double.random(in: 0.01...0.8)
+    
+    /// How many petals in the first layer the flower has
+    @Ranged(minimum: 2, maximum: 20)
+    var petalsInFirstLayer: Int = Int.random(in: 3...6)
+
+    /// How many layers the flower has
+    @Ranged(minimum: 4, maximum: 20)
+    var petalsInLastLayer: Int = Int.random(in: 4...8)
+    
+    /// The color the first petal layer has
+    var petalsFirstLayerColor: UIColor
+    
+    /// The color the flower core has
+    var petalsLastLayerColor: UIColor
+    
+    /// The color the flower core has
+    var petalStrokeColor: UIColor
+    
+//    - Variação de cor (chance de mudar a cor na hora de gerar uma camada)
+//    - Cor da borda da pétala
+
     
 //    - Número de pétalas na primera camada
 //    - Número de pétalas na última camada
@@ -76,6 +96,9 @@ class Plant {
         stemColor = UIColor.randomColor()
         flowerCoreColor = UIColor.randomColor()
         flowerCoreStrokeColor = UIColor.randomColor()
+        petalsFirstLayerColor = UIColor.randomColor()
+        petalsLastLayerColor = UIColor.randomColor()
+        petalStrokeColor = UIColor.randomColor()
     }
     
     convenience init(stemLengthProportion: Double,
@@ -88,7 +111,15 @@ class Plant {
                      flowerCoreRadius: Double,
                      flowerCoreColor: UIColor,
                      flowerCoreStrokeWidth: Double,
-                     flowerCoreStrokeColor: UIColor) {
+                     flowerCoreStrokeColor: UIColor,
+                     flowerLayersCount: Int,
+                     petalRadius: Double,
+                     petalsInFirstLayer: Int,
+                     petalsInLastLayer: Int,
+                     petalsFirstLayerColor: UIColor,
+                     petalsLastLayerColor: UIColor,
+                     petalStrokeColor: UIColor
+                     ) {
         
         self.init()
         self.stemLengthProportion = stemLengthProportion
@@ -102,6 +133,13 @@ class Plant {
         self.flowerCoreColor = flowerCoreColor
         self.flowerCoreStrokeWidth = flowerCoreStrokeWidth
         self.flowerCoreStrokeColor = flowerCoreStrokeColor
+        self.flowerLayersCount = flowerLayersCount
+        self.petalRadius = petalRadius
+        self.petalsInFirstLayer = petalsInFirstLayer
+        self.petalsInLastLayer = petalsInLastLayer
+        self.petalsFirstLayerColor = petalsFirstLayerColor
+        self.petalsLastLayerColor = petalsLastLayerColor
+        self.petalStrokeColor = petalStrokeColor
     }
     
 }
