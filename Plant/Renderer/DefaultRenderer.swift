@@ -165,7 +165,7 @@ class DefaultRenderer: PlantRenderer {
                 let petalAngleFraction = CGFloat.pi * 2 / CGFloat(currentPetalCount)
                 
                 //Offsets petal layer to create pattern
-                let offset = CGFloat(i%2) * petalAngleFraction
+                let offset = (CGFloat(i%plant.flowerLayersCount) * petalAngleFraction) / CGFloat(plant.flowerLayersCount)
                 
                 let angle = petalAngleFraction * CGFloat(j) + offset
                 
@@ -175,7 +175,7 @@ class DefaultRenderer: PlantRenderer {
         }
         
         
-        return petalLayers + [coreLayer]
+        return petalLayers.reversed() + [coreLayer]
     }
     
     private func createPetal(withOrigin origin: CGPoint, angle: CGFloat, plant: Plant, coreRadius: CGFloat, stemHeight: CGFloat, currentLayer: Int) -> CAShapeLayer {
@@ -190,7 +190,7 @@ class DefaultRenderer: PlantRenderer {
         let newOrigin = origin + CGPoint(x: angleCos * CGFloat(currentLayer) * coreRadius, y: angleSin * CGFloat(currentLayer) * coreRadius)
         
         let petalPath1 = UIBezierPath()
-        petalPath1.move(to: newOrigin)
+        petalPath1.move(to: origin)
         
         
 //        var c1AngleSin = sin(angle - .pi/6)
@@ -203,9 +203,9 @@ class DefaultRenderer: PlantRenderer {
 //        var c2AngleCos = cos(angle + .pi/6)
 //        c2AngleCos = c2AngleCos > .pi ? -c2AngleCos : c2AngleCos
         
-        let petalEnd = newOrigin + CGPoint(x: stemHeight/3 * angleCos, y: stemHeight/3 * angleSin)
+        let petalEnd = newOrigin + CGPoint(x: (stemHeight/4 + stemHeight/3 * CGFloat(plant.petalRadius)) * angleCos, y: (stemHeight/4 + stemHeight/3 * CGFloat(plant.petalRadius)) * angleSin)
 //
-        let path1Offset = newOrigin + CGPoint(x: -coreRadius * angleSin, y: -coreRadius * angleCos)
+        let path1Offset = origin + CGPoint(x: -coreRadius * angleSin, y: coreRadius * angleCos)
 //        let path1ControlPoint1 = newOrigin + CGPoint(x: -coreRadius + -coreRadius * c1AngleCos, y: -coreRadius + -coreRadius * c1AngleSin)
 //        let path1ControlPoint2 = newOrigin + CGPoint(x: -coreRadius * 2 + -coreRadius * c1AngleCos, y: coreRadius * 2 + coreRadius * c1AngleSin)
         
@@ -213,9 +213,9 @@ class DefaultRenderer: PlantRenderer {
         petalPath1.addLine(to: petalEnd)
         
         let petalPath2 = UIBezierPath()
-        petalPath2.move(to: newOrigin)
+        petalPath2.move(to: origin)
         
-        let path2Offset = newOrigin + CGPoint(x: coreRadius * angleSin, y: coreRadius * angleCos)
+        let path2Offset = origin + CGPoint(x: coreRadius * angleSin, y: -coreRadius * angleCos)
 //        let path2ControlPoint1 = newOrigin + CGPoint(x: -coreRadius + -coreRadius * c2AngleCos, y: -coreRadius + -coreRadius * c2AngleSin)
 //        let path2ControlPoint2 = newOrigin + CGPoint(x: -coreRadius * 2 + -coreRadius * c2AngleCos, y: coreRadius * 2 + coreRadius * c2AngleSin)
         

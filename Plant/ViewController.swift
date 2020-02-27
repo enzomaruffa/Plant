@@ -40,6 +40,8 @@ class ViewController: UIViewController {
     
     @IBAction func random1Pressed(_ sender: Any) {
         plant1 = Plant()
+//
+//        plant1 = Plant(stemLengthProportion: 0.8, stemColor: .red, branchingProbability: 0.4, averageStemLayers: 3, flowerProbability: 0.6, stemWidth: 2, stemAngleFactor: 0.1, flowerCoreRadius: 0.5, flowerCoreColor: .blue, flowerCoreStrokeWidth: 1, flowerCoreStrokeColor: .blue, flowerLayersCount: 2, petalRadius: 2, petalsInFirstLayer: 4, petalsInLastLayer: 4, petalsFirstLayerColor: .red, petalsLastLayerColor: .yellow, petalStrokeColor: .green)
         
         random1.layer.sublayers?.forEach({ $0.removeFromSuperlayer() })
         let layers = renderer.render(plant: plant1, in: random1.frame)
