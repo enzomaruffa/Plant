@@ -10,8 +10,10 @@ import UIKit
 
 class PlantLayer: CAShapeLayer {
     
-    var pathToTransformInto: CGPath?
     var parentPlant: PlantLayer?
+    var minStrokeStart: CGFloat = 0
+    var maxStrokeEnd: CGFloat = 1
+    var animatableFillColor: CGColor?
     
     func increaseaPathToTransformIntoStroke(by amount: CGFloat, recursive: Bool = true) {
         self.lineWidth += amount
