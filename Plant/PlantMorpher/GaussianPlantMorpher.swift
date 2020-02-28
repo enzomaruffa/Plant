@@ -17,12 +17,12 @@ class GaussianPlantMorpher: PlantMorpher {
         let stemLengthProportion = R.randomClosed(first: plant1.stemLengthProportion, second: plant2.stemLengthProportion)
         let stemColor = plant1.stemColor.gaussianMix(with: plant2.stemColor)
         
-        let branchingProbability = R.randomClosed(first: plant1.branchingProbability, second:  plant2.branchingProbability)
-        
-        let dAverateStemLayers = R.randomClosed(first: Double(plant1.averageStemLayers), second:  Double(plant2.averageStemLayers))
+        let dAverateStemLayers = R.randomClosed(first: Double(plant1.stemLayers), second:  Double(plant2.stemLayers))
         let averateStemLayers = Int(round(dAverateStemLayers))
         
         let flowerProbability = R.randomClosed(first: plant1.flowerProbability, second: plant2.flowerProbability)
+        let flowerCount = R.randomClosed(first: plant1.flowerCount, second:  plant2.flowerCount)
+        
         let stemWidth = R.randomClosed(first: plant1.stemWidth, second:  plant2.stemWidth)
         let stemAngleFactor = R.randomClosed(first: plant1.stemAngleFactor, second:  plant2.stemAngleFactor)
         
@@ -45,9 +45,9 @@ class GaussianPlantMorpher: PlantMorpher {
         
         return Plant(stemLengthProportion: stemLengthProportion,
                      stemColor: stemColor,
-                     branchingProbability: branchingProbability,
                      averageStemLayers: averateStemLayers,
                      flowerProbability: flowerProbability,
+                     flowerCount: flowerCount,
                      stemWidth: stemWidth,
                      stemAngleFactor: stemAngleFactor,
                      flowerCoreRadius: flowerCoreRadius,

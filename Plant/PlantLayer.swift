@@ -11,12 +11,25 @@ import UIKit
 class PlantLayer: CAShapeLayer {
     
     var pathToTransformInto: CGPath?
+    var parentPlant: PlantLayer?
     
-    func increaseaPathToTransformIntoStroke(by amount: CGFloat) {
+    func increaseaPathToTransformIntoStroke(by amount: CGFloat, recursive: Bool = true) {
         self.lineWidth += amount
+        
+        if recursive {
+            if let parentLayer = parentPlant {
+                parentLayer.increaseaPathToTransformIntoStroke(by: amount, recursive: recursive)
+            }
+        }
     }
     
-    func setPathToTransformIntoStroke(to amount: CGFloat) {
+    func setPathToTransformIntoStroke(to amount: CGFloat, recursive: Bool = true) {
         self.lineWidth = amount
+        
+        if recursive {
+            if let parentLayer = parentPlant {
+                parentLayer.setPathToTransformIntoStroke(to: amount, recursive: recursive)
+            }
+        }
     }
 }

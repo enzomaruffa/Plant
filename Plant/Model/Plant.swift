@@ -19,17 +19,17 @@ class Plant {
     /// The color of the stem.
     var stemColor: UIColor
     
-    /// The probability of a branch growing from the first layer.
-    @Ranged(minimum: 0.2, maximum: 0.8)
-    var branchingProbability: Double = Double.random(in: 0...1)
-    
-    /// The probability of a branch growing from the first layer.
+    /// Plant stem layer count
     @Ranged(minimum: 1, maximum: 5)
-    var averageStemLayers: Int = Int.random(in: 1...5)
+    var stemLayers: Int = Int.random(in: 1...5)
     
     /// The probability of a flower growing from a branch tip.
-    @Ranged(minimum: 0, maximum: 1)
-    var flowerProbability: Double = Double.random(in: 0.1...0.95)
+    @Ranged(minimum: 0.1, maximum: 1)
+    var flowerProbability: Double = Double.random(in: 0.5...0.95)
+    
+    /// The probability of a flower growing from a branch tip.
+    @Ranged(minimum: 0, maximum: 90)
+    var flowerCount: Int = Int.random(in: 1...7)
     
     /// The stem thickness.
     @Ranged(minimum: 0, maximum: 1)
@@ -103,9 +103,9 @@ class Plant {
     
     convenience init(stemLengthProportion: Double,
                      stemColor: UIColor,
-                     branchingProbability: Double,
                      averageStemLayers: Int,
                      flowerProbability: Double,
+                     flowerCount: Int,
                      stemWidth: Double,
                      stemAngleFactor: Double,
                      flowerCoreRadius: Double,
@@ -124,9 +124,9 @@ class Plant {
         self.init()
         self.stemLengthProportion = stemLengthProportion
         self.stemColor = stemColor
-        self.branchingProbability = branchingProbability
-        self.averageStemLayers = averageStemLayers
+        self.stemLayers = averageStemLayers
         self.flowerProbability = flowerProbability
+        self.flowerCount = flowerCount
         self.stemWidth = stemWidth
         self.stemAngleFactor = stemAngleFactor
         self.flowerCoreRadius = flowerCoreRadius
