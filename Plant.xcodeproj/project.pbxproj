@@ -24,6 +24,7 @@
 		C030BB882400490A008EAE9E /* GaussianPlantMorpher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */; };
 		C030BB8A24004A1D008EAE9E /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB8924004A1D008EAE9E /* UIColor+.swift */; };
 		C030BB8D24039204008EAE9E /* LinearPlantMorpher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB8C24039204008EAE9E /* LinearPlantMorpher.swift */; };
+		C030BB8F24080758008EAE9E /* WindShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C030BB8E24080758008EAE9E /* WindShader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		C030BB872400490A008EAE9E /* GaussianPlantMorpher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaussianPlantMorpher.swift; sourceTree = "<group>"; };
 		C030BB8924004A1D008EAE9E /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		C030BB8C24039204008EAE9E /* LinearPlantMorpher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearPlantMorpher.swift; sourceTree = "<group>"; };
+		C030BB8E24080758008EAE9E /* WindShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = WindShader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				C030BB7E24001107008EAE9E /* PseudorandomGenerator.swift */,
 				C030BB84240048E0008EAE9E /* Extensions */,
 				C030BB8B24005E60008EAE9E /* PlantMorpher */,
+				C030BB8E24080758008EAE9E /* WindShader.metal */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				C030BB8D24039204008EAE9E /* LinearPlantMorpher.swift in Sources */,
 				C030BB7723FFF3BF008EAE9E /* Plant.swift in Sources */,
 				C030BB7B23FFFA9D008EAE9E /* PlantRenderer.swift in Sources */,
+				C030BB8F24080758008EAE9E /* WindShader.metal in Sources */,
 				C030BB8A24004A1D008EAE9E /* UIColor+.swift in Sources */,
 				C030BB7D23FFFAD3008EAE9E /* DefaultRenderer.swift in Sources */,
 				C030BB7923FFF67B008EAE9E /* RangedWrapper.swift in Sources */,
