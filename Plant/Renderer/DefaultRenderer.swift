@@ -8,8 +8,10 @@
 
 import UIKit
 
+// MARK: - Default Renderer
 class DefaultRenderer: PlantRenderer {
     
+    // MARK: - Static Variables
     /// The minimum angle a steam branch can grow. This is relative to the ground position, used so that a future branch can't go downwards. Assumes 0 is top
     static var minAbsoluteAngle: CGFloat = -CGFloat.pi/8 * 5
     
@@ -24,6 +26,7 @@ class DefaultRenderer: PlantRenderer {
     
     typealias R = PseurandomGenerator
     
+    // MARK: - PlantRenderer
     func render(plant: Plant, in frame: CGRect) -> (stemLayers: [PlantLayer], flowerLayers: [PlantLayer]) {
         let rootLayer = PlantLayer()
         rootLayer.frame = frame
@@ -101,6 +104,7 @@ class DefaultRenderer: PlantRenderer {
         return (stemLayers: [rootLayer] + stemLayers, flowerLayers: flowerLayers)
     }
     
+    // MARK: - Create Stem
     private func createStem(fromPlant plant: Plant, withOrigin origin: CGPoint, maximumHeight: CGFloat, currentIteration: Int) -> (layer: PlantLayer, endPoint: CGPoint) {
         
         let stemColor = plant.stemColor
@@ -149,6 +153,7 @@ class DefaultRenderer: PlantRenderer {
         
     }
     
+    // MARK: - Create Flower
     private func createFlower(at origin: CGPoint, with plant: Plant, andStemHeight stemHeight: CGFloat) -> [PlantLayer] {
         // Creates flower core
         let corePath = UIBezierPath()
@@ -197,6 +202,7 @@ class DefaultRenderer: PlantRenderer {
         return petalLayers.reversed() + [coreLayer]
     }
     
+    // MARK: - Create Petal
     private func createPetal(withOrigin origin: CGPoint, angle: CGFloat, plant: Plant, coreRadius: CGFloat, stemHeight: CGFloat, currentLayer: Int) -> PlantLayer {
         
         let petalLayer = PlantLayer()
@@ -258,6 +264,20 @@ class DefaultRenderer: PlantRenderer {
         petalLayer.minStrokeStart = 1/7
         
         return petalLayer
+    }
+    
+    // MARK: - Math Helpers
+    
+    // Ver foto do Schumacher pra explicação
+    func getQuadraticControlPoint(for a: CGPoint, and b: CGPoint, withDistance distance: CGFloat) -> CGPoint {
+        
+        // Ponto médio
+        let h = CGPoint(x: (a.x - b.x)/2, y: (a.y - b.y)/2)
+        
+        // Vetor diretor
+        let v = CGVector(dx: -(a.y - b.y), dy: a.x - b.x).normalized()
+        
+        return h + (v * distance).toCGPoint()
     }
     
     // Check replicator layer for leafs!

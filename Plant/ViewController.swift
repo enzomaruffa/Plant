@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         random1Pressed(self)
         random2Pressed(self)
-        
     }
 
     @IBAction func morphPlants(_ sender: Any) {
