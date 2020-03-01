@@ -137,7 +137,16 @@ class DefaultRenderer: PlantRenderer {
         
         newPoint = previousPoint + newPoint
         
-        stemPath.addLine(to: newPoint)
+        if newPoint.y < 0 {
+            newPoint = CGPoint(x: newPoint.x, y: abs(newPoint.y))
+        }
+        
+//        stemPath.addLine(to: newPoint)
+        
+        let multiplier = CGFloat.random(in: -1...1)
+        let controlPoint = getQuadraticControlPoint(for: origin, and: newPoint, withDistance: newStemLength * 0.3 * multiplier)
+//        stemPath.addLine(to: newPoint)
+        stemPath.addQuadCurve(to: newPoint, controlPoint: controlPoint)
         
         stemLayer.path = stemPath.cgPath
         stemLayer.lineCap = .round
@@ -272,12 +281,13 @@ class DefaultRenderer: PlantRenderer {
     func getQuadraticControlPoint(for a: CGPoint, and b: CGPoint, withDistance distance: CGFloat) -> CGPoint {
         
         // Ponto médio
-        let h = CGPoint(x: (a.x - b.x)/2, y: (a.y - b.y)/2)
+        let h = a - CGPoint(x: (a.x - b.x)/2, y: (a.y - b.y)/2)
         
         // Vetor diretor
         let v = CGVector(dx: -(a.y - b.y), dy: a.x - b.x).normalized()
         
-        return h + (v * distance).toCGPoint()
+        let controlPoint = h + (v * distance).toCGPoint()
+        return controlPoint
     }
     
     // Check replicator layer for leafs!
