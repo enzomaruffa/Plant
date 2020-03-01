@@ -126,10 +126,3 @@ class ViewController: UIViewController {
         }
     }
 }
-
-extension CALayer {
-    func addSublayers(_ layers: [CALayer]) {
-        layers.forEach({ self.addSublayer($0) })
-    }
-}
-

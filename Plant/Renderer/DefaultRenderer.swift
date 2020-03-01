@@ -29,8 +29,6 @@ class DefaultRenderer: PlantRenderer {
     // MARK: - PlantRenderer
     func render(plant: Plant, in frame: CGRect) -> (stemLayers: [PlantLayer], flowerLayers: [PlantLayer]) {
         
-        print("\n Drawing new plant! \n")
-        
         let rootLayer = PlantLayer()
         rootLayer.frame = frame
         

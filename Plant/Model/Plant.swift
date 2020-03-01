@@ -13,8 +13,8 @@ class Plant {
     static var maximumStemLayers = 5
     
     /// The lenght of the first stem layer. The lower, the bigger.
-    @Ranged(minimum: 1, maximum: 3)
-    var stemLengthProportion: Double = Double.random(in: 1...3)
+    @Ranged(minimum: 1, maximum: 2)
+    var stemLengthProportion: Double = Double.random(in: 1...2)
     
     /// The color of the stem.
     var stemColor: UIColor

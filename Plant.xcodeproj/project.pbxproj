@@ -26,6 +26,7 @@
 		C030BB8D24039204008EAE9E /* LinearPlantMorpher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB8C24039204008EAE9E /* LinearPlantMorpher.swift */; };
 		C030BB8F24080758008EAE9E /* WindShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = C030BB8E24080758008EAE9E /* WindShader.metal */; };
 		C030BB9124093651008EAE9E /* PlantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB9024093651008EAE9E /* PlantLayer.swift */; };
+		C030BB93240C71E8008EAE9E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB92240C71E8008EAE9E /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C030BB8C24039204008EAE9E /* LinearPlantMorpher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearPlantMorpher.swift; sourceTree = "<group>"; };
 		C030BB8E24080758008EAE9E /* WindShader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = WindShader.metal; sourceTree = "<group>"; };
 		C030BB9024093651008EAE9E /* PlantLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantLayer.swift; sourceTree = "<group>"; };
+		C030BB92240C71E8008EAE9E /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				C030BB8B24005E60008EAE9E /* PlantMorpher */,
 				C030BB8E24080758008EAE9E /* WindShader.metal */,
 				C030BB9024093651008EAE9E /* PlantLayer.swift */,
+				C030BB92240C71E8008EAE9E /* GameViewController.swift */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				C030BB7923FFF67B008EAE9E /* RangedWrapper.swift in Sources */,
 				C030BB5523FFF3A6008EAE9E /* AppDelegate.swift in Sources */,
 				C030BB7F24001107008EAE9E /* PseudorandomGenerator.swift in Sources */,
+				C030BB93240C71E8008EAE9E /* GameViewController.swift in Sources */,
 				C030BB5723FFF3A6008EAE9E /* SceneDelegate.swift in Sources */,
 				C030BB9124093651008EAE9E /* PlantLayer.swift in Sources */,
 				C030BB83240048BD008EAE9E /* PlantMorpher.swift in Sources */,
