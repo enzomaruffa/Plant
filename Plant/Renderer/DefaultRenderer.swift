@@ -80,7 +80,7 @@ class DefaultRenderer: PlantRenderer {
             
             stemLayers.append(stemLayer)
             
-            if Double.random(in: 0...1) < plant.flowerProbability {
+            if selectedLayer >= plant.stemLayers || Double.random(in: 0...1) < plant.flowerProbability {
                 // Generated a flower
                 branchTips.append(newOrigin)
                 flowersToGenerate -= 1

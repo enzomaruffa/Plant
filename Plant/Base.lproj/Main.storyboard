@@ -98,6 +98,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycq-TQ-4Rn">
                                                 <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ycq-TQ-4Rn" secondAttribute="height" multiplier="1:1" id="CBD-D9-SxV"/>
                                                     <constraint firstAttribute="height" constant="64" id="sqA-tR-pI7"/>
@@ -111,6 +112,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lla-Sb-G9x">
                                                 <rect key="frame" x="74" y="0.0" width="64" height="64"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="lla-Sb-G9x" secondAttribute="height" multiplier="1:1" id="6d2-1g-qH6"/>
                                                     <constraint firstAttribute="height" constant="64" id="teN-QC-FH9"/>
@@ -254,10 +256,12 @@
                         <viewLayoutGuide key="safeArea" id="muJ-Q4-EtV"/>
                     </view>
                     <connections>
+                        <outlet property="copyButton" destination="ycq-TQ-4Rn" id="7Cz-2n-xYU"/>
                         <outlet property="light1" destination="fkJ-nt-7hv" id="Wxd-W7-QbM"/>
                         <outlet property="light2" destination="sOE-me-KrN" id="FbV-as-xpP"/>
                         <outlet property="light3" destination="7wZ-mG-Tpj" id="Si1-hB-fMX"/>
                         <outlet property="light4" destination="V1V-P2-Wxo" id="X9H-10-txI"/>
+                        <outlet property="mixButton" destination="lla-Sb-G9x" id="XSA-dK-aU6"/>
                         <outlet property="plant1Container" destination="SGA-eR-f0W" id="NW4-LZ-TYF"/>
                         <outlet property="plant2Container" destination="XeI-Nr-hfm" id="nta-yQ-AnT"/>
                         <outlet property="plant3Container" destination="aGW-q0-vIg" id="SuZ-Tq-bO7"/>

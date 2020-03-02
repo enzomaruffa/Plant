@@ -34,6 +34,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var light3: UIView!
     @IBOutlet weak var light4: UIView!
     
+    @IBOutlet weak var copyButton: UIButton!
+    @IBOutlet weak var mixButton: UIButton!
+    
     var currentTool: CurrentTool?
     
     var toolIndex1: Int?
@@ -53,6 +56,9 @@ class GameViewController: UIViewController {
         lightViews = [light1, light2, light3, light4]
         
         lightViews.forEach({ setLightView(view: $0) })
+        
+        copyButton.layer.cornerRadius = 5
+        mixButton.layer.cornerRadius = 5
     }
     
     // MARK: - Lifecycle Helpers
@@ -63,13 +69,23 @@ class GameViewController: UIViewController {
     
     // MARK: - Outlets
     @IBAction func copyPressed(_ sender: Any) {
+        let previousTool = currentTool
         resetSelections()
-        currentTool = .copy
+        
+        if previousTool != .copy {
+            currentTool = .copy
+            copyButton.backgroundColor = .yellow
+        }
     }
     
     @IBAction func mixPressed(_ sender: Any) {
+        let previousTool = currentTool
         resetSelections()
-        currentTool = .mix
+        
+        if previousTool != .mix {
+            currentTool = .mix
+            mixButton.backgroundColor = .yellow
+        }
     }
     
     fileprivate func resetSelections() {
@@ -78,6 +94,9 @@ class GameViewController: UIViewController {
         toolIndex1 = nil
         toolIndex2 = nil
         currentTool = .none
+        
+        copyButton.backgroundColor = .white
+        mixButton.backgroundColor = .white
     }
     
     @IBAction func plantTapped(_ sender: UITapGestureRecognizer) {
@@ -107,6 +126,7 @@ class GameViewController: UIViewController {
             guard let plant1 = getPlantFromTag(toolIndex1!),
                 let plant2 = getPlantFromTag(toolIndex2!) else {
                 print("Error getting plant from tag \(toolIndex1) or tag \(toolIndex2) ")
+                resetSelections()
                 return
             }
             
@@ -123,6 +143,7 @@ class GameViewController: UIViewController {
         } else {
             guard let plant = getPlantFromTag(toolIndex1!) else {
                 print("Error getting plant from tag \(toolIndex1)")
+                resetSelections()
                 return
             }
             createPlant(plant, at: tag)
