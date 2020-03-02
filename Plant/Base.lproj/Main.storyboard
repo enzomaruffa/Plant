@@ -309,7 +309,7 @@
                         <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="Tpg-WO-pMX"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="aSs-hH-PNN" userLabel="Plant 3 Swipe Down">
+                <swipeGestureRecognizer direction="down" id="aSs-hH-PNN" userLabel="Plant 3 Swipe Down">
                     <connections>
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="NDI-FN-hVE"/>
                     </connections>

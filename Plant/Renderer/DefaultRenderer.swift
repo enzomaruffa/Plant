@@ -151,6 +151,7 @@ class DefaultRenderer: PlantRenderer {
         stemPath.addQuadCurve(to: newPoint, controlPoint: controlPoint)
         
         stemLayer.path = stemPath.cgPath
+        stemLayer.fillColor = UIColor.clear.cgColor
         stemLayer.lineCap = .round
         stemLayer.lineJoin = .round
         stemLayer.lineWidth = Self.stemWidthBasis + (3 * CGFloat(plant.stemWidth))
