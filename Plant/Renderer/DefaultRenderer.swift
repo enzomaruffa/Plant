@@ -252,7 +252,7 @@ class DefaultRenderer: PlantRenderer {
         
         petalPath2.addLine(to: path2Offset)
         
-        let controlPoint2 = getQuadraticControlPoint(for: path2Offset, and: petalEnd, withDistance: pointsDistance * 0.6 * distanceFactor)
+        let controlPoint2 = getQuadraticControlPoint(for: path2Offset, and: petalEnd, withDistance: pointsDistance * 0.6 * distanceFactor * -1)
         
         //        petalPath2.addLine(to: petalEnd)
         petalPath2.addQuadCurve(to: petalEnd, controlPoint: controlPoint2)
@@ -271,8 +271,6 @@ class DefaultRenderer: PlantRenderer {
         petalLayer.fillColor = plantFillColor.withAlphaComponent(0).cgColor
         petalLayer.lineWidth = 0.7
         petalLayer.strokeColor = plant.petalStrokeColor.cgColor
-        
-        petalLayer.minStrokeStart = 1/7
         
         return petalLayer
     }

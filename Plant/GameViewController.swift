@@ -29,10 +29,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var plant4Container: UIView!
     private var plant4: Plant?
     
-    @IBOutlet weak var light1: UIView!
-    @IBOutlet weak var light2: UIView!
-    @IBOutlet weak var light3: UIView!
-    @IBOutlet weak var light4: UIView!
+    @IBOutlet weak var plant5Container: UIView!
+    private var plant5: Plant?
     
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var mixButton: UIButton!
@@ -52,19 +50,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        plantViews = [plant1Container, plant2Container, plant3Container, plant4Container]
-        lightViews = [light1, light2, light3, light4]
-        
-        lightViews.forEach({ setLightView(view: $0) })
+        plantViews = [plant1Container, plant2Container, plant3Container, plant4Container, plant5Container]
         
         copyButton.layer.cornerRadius = 5
         mixButton.layer.cornerRadius = 5
-    }
-    
-    // MARK: - Lifecycle Helpers
-    private func setLightView(view: UIView) {
-        view.layer.cornerRadius = view.frame.height/2
-        turnLightOff(view: view)
     }
     
     // MARK: - Outlets
@@ -89,7 +78,6 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func resetSelections() {
-        lightViews.forEach({ turnLightOff(view: $0)} )
         
         toolIndex1 = nil
         toolIndex2 = nil
@@ -118,10 +106,8 @@ class GameViewController: UIViewController {
     func mixTapped(tag: Int) {
         if toolIndex1 == nil {
             toolIndex1 = tag
-            turnLightOn(view: lightViews[tag])
         } else if toolIndex2 == nil {
             toolIndex2 = tag
-            turnLightOn(view: lightViews[tag])
         } else {
             guard let plant1 = getPlantFromTag(toolIndex1!),
                 let plant2 = getPlantFromTag(toolIndex2!) else {
@@ -139,7 +125,6 @@ class GameViewController: UIViewController {
     func copyTapped(tag: Int) {
         if toolIndex1 == nil {
             toolIndex1 = tag
-            turnLightOn(view: lightViews[tag])
         } else {
             guard let plant = getPlantFromTag(toolIndex1!) else {
                 print("Error getting plant from tag \(toolIndex1)")
@@ -168,15 +153,6 @@ class GameViewController: UIViewController {
         removePlant(at: tag)
     }
     
-    // MARK: - Helpers
-    private func turnLightOff(view: UIView) {
-        view.backgroundColor = .darkGray
-    }
-    
-    private func turnLightOn(view: UIView) {
-        view.backgroundColor = .yellow
-    }
-    
     private func createPlant(_ plant: Plant = Plant(), at plantIndex: Int) {
         let plantView = plantViews[plantIndex]
         
@@ -196,6 +172,8 @@ class GameViewController: UIViewController {
             plant3 = plant
         case 3:
             plant4 = plant
+        case 4:
+            plant5 = plant
         default:
             print("Unknown tag \(plantIndex)")
         }
@@ -214,6 +192,8 @@ class GameViewController: UIViewController {
             plant3 = nil
         case 3:
             plant4 = nil
+        case 4:
+            plant5 = nil
         default:
             print("Unknown tag \(plantIndex)")
         }

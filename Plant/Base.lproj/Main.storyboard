@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9t7-Px-Xe4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9t7-Px-Xe4">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,6 +93,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ud-pg-XNC" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky" translatesAutoresizingMaskIntoConstraints="NO" id="892-XG-bLV">
+                                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ELc-mv-XT6">
                                         <rect key="frame" x="714" y="15" width="138" height="64"/>
                                         <subviews>
@@ -131,7 +134,7 @@
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGA-eR-f0W" userLabel="Plant 1">
-                                        <rect key="frame" x="44" y="79" width="202" height="285"/>
+                                        <rect key="frame" x="44" y="30" width="161.5" height="324"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -141,7 +144,7 @@
                                         </connections>
                                     </view>
                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-Nr-hfm" userLabel="Plant 2">
-                                        <rect key="frame" x="246" y="79" width="202" height="285"/>
+                                        <rect key="frame" x="205.5" y="30" width="161.5" height="324"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -151,7 +154,7 @@
                                         </connections>
                                     </view>
                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-q0-vIg" userLabel="Plant 3">
-                                        <rect key="frame" x="448" y="79" width="202" height="285"/>
+                                        <rect key="frame" x="367" y="30" width="162" height="324"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -161,7 +164,7 @@
                                         </connections>
                                     </view>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkW-kI-zl0" userLabel="Plant 4">
-                                        <rect key="frame" x="650" y="79" width="202" height="285"/>
+                                        <rect key="frame" x="529" y="30" width="161.5" height="324"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -170,21 +173,39 @@
                                             <outletCollection property="gestureRecognizers" destination="jX7-ll-vmI" appends="YES" id="08n-UO-7WL"/>
                                         </connections>
                                     </view>
+                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6i7-yH-BED" userLabel="Plant 5">
+                                        <rect key="frame" x="690.5" y="30" width="161.5" height="324"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rd4-Ua-4nT" appends="YES" id="FOO-PL-1yC"/>
+                                            <outletCollection property="gestureRecognizers" destination="Cvh-Mc-uxk" appends="YES" id="PL8-ef-hFk"/>
+                                            <outletCollection property="gestureRecognizers" destination="ozB-fG-DDP" appends="YES" id="wZM-Py-L0q"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.72415453767123283" green="0.91708070293975597" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="XeI-Nr-hfm" firstAttribute="height" secondItem="SGA-eR-f0W" secondAttribute="height" id="5Yt-ud-7Br"/>
                                     <constraint firstItem="aGW-q0-vIg" firstAttribute="centerY" secondItem="SGA-eR-f0W" secondAttribute="centerY" id="5cZ-rK-bVi"/>
                                     <constraint firstItem="ELc-mv-XT6" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" constant="15" id="7Hq-Ie-2yJ"/>
-                                    <constraint firstItem="SGA-eR-f0W" firstAttribute="top" secondItem="ELc-mv-XT6" secondAttribute="bottom" id="Hba-BV-hJG"/>
+                                    <constraint firstItem="qkW-kI-zl0" firstAttribute="trailing" secondItem="6i7-yH-BED" secondAttribute="leading" id="BvS-bk-yYy"/>
+                                    <constraint firstAttribute="trailing" secondItem="892-XG-bLV" secondAttribute="trailing" id="CFR-7p-bC0"/>
+                                    <constraint firstItem="892-XG-bLV" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" id="GaP-cU-HCg"/>
+                                    <constraint firstItem="SGA-eR-f0W" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" constant="30" id="Hba-BV-hJG"/>
                                     <constraint firstItem="qkW-kI-zl0" firstAttribute="width" secondItem="SGA-eR-f0W" secondAttribute="width" id="Sg4-ch-f6d"/>
+                                    <constraint firstItem="6i7-yH-BED" firstAttribute="height" secondItem="SGA-eR-f0W" secondAttribute="height" id="Tkb-qB-Rh4"/>
                                     <constraint firstItem="qkW-kI-zl0" firstAttribute="centerY" secondItem="SGA-eR-f0W" secondAttribute="centerY" id="Y4h-fH-GCC"/>
                                     <constraint firstItem="aGW-q0-vIg" firstAttribute="height" secondItem="SGA-eR-f0W" secondAttribute="height" id="ahF-qg-Ocm"/>
                                     <constraint firstItem="aGW-q0-vIg" firstAttribute="trailing" secondItem="qkW-kI-zl0" secondAttribute="leading" id="b9x-bN-6Lq"/>
+                                    <constraint firstItem="892-XG-bLV" firstAttribute="leading" secondItem="8ud-pg-XNC" secondAttribute="leading" id="bY9-Hm-b2R"/>
                                     <constraint firstItem="XeI-Nr-hfm" firstAttribute="width" secondItem="SGA-eR-f0W" secondAttribute="width" id="d8r-ul-z25"/>
+                                    <constraint firstAttribute="bottom" secondItem="892-XG-bLV" secondAttribute="bottom" id="dSD-1z-bpD"/>
+                                    <constraint firstItem="6i7-yH-BED" firstAttribute="width" secondItem="SGA-eR-f0W" secondAttribute="width" id="hha-4z-IhW"/>
                                     <constraint firstItem="aGW-q0-vIg" firstAttribute="leading" secondItem="XeI-Nr-hfm" secondAttribute="trailing" id="iov-Pb-Wbq"/>
+                                    <constraint firstItem="6i7-yH-BED" firstAttribute="centerY" secondItem="SGA-eR-f0W" secondAttribute="centerY" id="l9z-TZ-rFk"/>
                                     <constraint firstItem="XeI-Nr-hfm" firstAttribute="leading" secondItem="SGA-eR-f0W" secondAttribute="trailing" id="qdm-fx-iyP"/>
                                     <constraint firstItem="aGW-q0-vIg" firstAttribute="width" secondItem="SGA-eR-f0W" secondAttribute="width" id="sCI-UI-Q6h"/>
                                     <constraint firstItem="XeI-Nr-hfm" firstAttribute="centerY" secondItem="SGA-eR-f0W" secondAttribute="centerY" id="t72-Jh-FFS"/>
@@ -192,64 +213,33 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALv-2G-J2d" userLabel="Ground View">
-                                <rect key="frame" x="0.0" y="354" width="896" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="324" width="896" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="H1V-Ur-FQc">
+                                        <rect key="frame" x="0.0" y="0.0" width="896" height="90"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="EP7-2z-eeh"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fkJ-nt-7hv" userLabel="Light View 1">
-                                <rect key="frame" x="130" y="364" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="cwO-Rc-vf8"/>
-                                    <constraint firstAttribute="width" secondItem="fkJ-nt-7hv" secondAttribute="height" multiplier="1:1" id="wg6-iy-3TP"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOE-me-KrN" userLabel="Light View 2">
-                                <rect key="frame" x="332" y="364" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="sOE-me-KrN" secondAttribute="height" multiplier="1:1" id="REf-eZ-Oiq"/>
-                                    <constraint firstAttribute="width" constant="30" id="qen-Gi-X4U"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7wZ-mG-Tpj" userLabel="Light View 3">
-                                <rect key="frame" x="534" y="364" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="7Rl-1I-uP6"/>
-                                    <constraint firstAttribute="width" secondItem="7wZ-mG-Tpj" secondAttribute="height" multiplier="1:1" id="yEK-Kk-7tE"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1V-P2-Wxo" userLabel="Light View 4">
-                                <rect key="frame" x="736" y="364" width="30" height="30"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="aZ3-TQ-nxy"/>
-                                    <constraint firstAttribute="width" secondItem="V1V-P2-Wxo" secondAttribute="height" multiplier="1:1" id="rIB-CK-OYe"/>
+                                    <constraint firstItem="H1V-Ur-FQc" firstAttribute="leading" secondItem="ALv-2G-J2d" secondAttribute="leading" id="1pe-0F-08Q"/>
+                                    <constraint firstAttribute="height" constant="90" id="EP7-2z-eeh"/>
+                                    <constraint firstAttribute="trailing" secondItem="H1V-Ur-FQc" secondAttribute="trailing" id="b8J-Pd-HId"/>
+                                    <constraint firstItem="H1V-Ur-FQc" firstAttribute="top" secondItem="ALv-2G-J2d" secondAttribute="top" id="mYb-OW-QTH"/>
+                                    <constraint firstAttribute="bottom" secondItem="H1V-Ur-FQc" secondAttribute="bottom" id="tLa-xq-Fwt"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ALv-2G-J2d" secondAttribute="bottom" id="0t6-vW-8nf"/>
-                            <constraint firstItem="7wZ-mG-Tpj" firstAttribute="centerX" secondItem="aGW-q0-vIg" secondAttribute="centerX" id="4Cu-jq-iKl"/>
-                            <constraint firstItem="7wZ-mG-Tpj" firstAttribute="centerY" secondItem="fkJ-nt-7hv" secondAttribute="centerY" id="DyU-bk-sPV"/>
                             <constraint firstItem="ELc-mv-XT6" firstAttribute="trailing" secondItem="muJ-Q4-EtV" secondAttribute="trailing" id="GUi-gE-Bbo"/>
                             <constraint firstItem="8ud-pg-XNC" firstAttribute="leading" secondItem="sO1-ea-NdO" secondAttribute="leading" id="GYt-FM-GyI"/>
-                            <constraint firstItem="ALv-2G-J2d" firstAttribute="top" secondItem="SGA-eR-f0W" secondAttribute="bottom" constant="-10" id="Ixx-BC-iZp"/>
+                            <constraint firstItem="ALv-2G-J2d" firstAttribute="top" secondItem="SGA-eR-f0W" secondAttribute="bottom" constant="-30" id="Ixx-BC-iZp"/>
                             <constraint firstAttribute="trailing" secondItem="ALv-2G-J2d" secondAttribute="trailing" id="JGa-hS-re8"/>
-                            <constraint firstItem="SGA-eR-f0W" firstAttribute="bottom" secondItem="fkJ-nt-7hv" secondAttribute="top" id="NDp-sD-7oq"/>
-                            <constraint firstItem="V1V-P2-Wxo" firstAttribute="centerX" secondItem="qkW-kI-zl0" secondAttribute="centerX" id="NqH-zw-FaB"/>
                             <constraint firstAttribute="bottom" secondItem="8ud-pg-XNC" secondAttribute="bottom" id="TDR-ut-CqU"/>
                             <constraint firstItem="ALv-2G-J2d" firstAttribute="leading" secondItem="sO1-ea-NdO" secondAttribute="leading" id="czc-kU-n3j"/>
-                            <constraint firstItem="sOE-me-KrN" firstAttribute="centerX" secondItem="XeI-Nr-hfm" secondAttribute="centerX" id="gmk-5t-rcU"/>
-                            <constraint firstItem="SGA-eR-f0W" firstAttribute="width" secondItem="muJ-Q4-EtV" secondAttribute="width" multiplier="0.25" id="kfm-sl-HS9"/>
+                            <constraint firstItem="SGA-eR-f0W" firstAttribute="width" secondItem="muJ-Q4-EtV" secondAttribute="width" multiplier="0.2" id="kfm-sl-HS9"/>
                             <constraint firstItem="8ud-pg-XNC" firstAttribute="top" secondItem="sO1-ea-NdO" secondAttribute="top" id="pSG-TQ-y3G"/>
-                            <constraint firstItem="V1V-P2-Wxo" firstAttribute="centerY" secondItem="fkJ-nt-7hv" secondAttribute="centerY" id="qF0-Wo-udS"/>
-                            <constraint firstItem="sOE-me-KrN" firstAttribute="centerY" secondItem="fkJ-nt-7hv" secondAttribute="centerY" id="rn6-1z-goS"/>
-                            <constraint firstItem="fkJ-nt-7hv" firstAttribute="centerX" secondItem="SGA-eR-f0W" secondAttribute="centerX" id="wM4-nU-V76"/>
                             <constraint firstAttribute="trailing" secondItem="8ud-pg-XNC" secondAttribute="trailing" id="xan-AW-ghe"/>
                             <constraint firstItem="SGA-eR-f0W" firstAttribute="leading" secondItem="muJ-Q4-EtV" secondAttribute="leading" id="z9l-cp-GLa"/>
                         </constraints>
@@ -257,15 +247,12 @@
                     </view>
                     <connections>
                         <outlet property="copyButton" destination="ycq-TQ-4Rn" id="7Cz-2n-xYU"/>
-                        <outlet property="light1" destination="fkJ-nt-7hv" id="Wxd-W7-QbM"/>
-                        <outlet property="light2" destination="sOE-me-KrN" id="FbV-as-xpP"/>
-                        <outlet property="light3" destination="7wZ-mG-Tpj" id="Si1-hB-fMX"/>
-                        <outlet property="light4" destination="V1V-P2-Wxo" id="X9H-10-txI"/>
                         <outlet property="mixButton" destination="lla-Sb-G9x" id="XSA-dK-aU6"/>
                         <outlet property="plant1Container" destination="SGA-eR-f0W" id="NW4-LZ-TYF"/>
                         <outlet property="plant2Container" destination="XeI-Nr-hfm" id="nta-yQ-AnT"/>
                         <outlet property="plant3Container" destination="aGW-q0-vIg" id="SuZ-Tq-bO7"/>
                         <outlet property="plant4Container" destination="qkW-kI-zl0" id="h4g-uv-jC1"/>
+                        <outlet property="plant5Container" destination="6i7-yH-BED" id="Vpk-lr-Bdt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cD-Ig-gph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -329,8 +316,27 @@
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="YjH-Q2-YiZ"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <tapGestureRecognizer id="rd4-Ua-4nT" userLabel="Plant 5 Tap">
+                    <connections>
+                        <action selector="plantTapped:" destination="9t7-Px-Xe4" id="rDe-jV-rEr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="ozB-fG-DDP" userLabel="Plant 5 Swipe Up">
+                    <connections>
+                        <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="7Zu-wb-jmI"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="Cvh-Mc-uxk" userLabel="Plant 5 Swipe Down">
+                    <connections>
+                        <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="8AA-be-b2Y"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1240.8482142857142" y="108.69565217391305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ground" width="2224" height="265"/>
+        <image name="sky" width="2224" height="1668"/>
+    </resources>
 </document>
