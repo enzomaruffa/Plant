@@ -35,6 +35,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var mixButton: UIButton!
     
+    @IBOutlet weak var groundView: UIView!
+    
     var currentTool: CurrentTool?
     
     var toolIndex1: Int?
@@ -44,7 +46,6 @@ class GameViewController: UIViewController {
     let plantMorpher: PlantMorpher = LinearPlantMorpher()
     
     var plantViews = [UIView]()
-    var lightViews = [UIView]()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -111,9 +112,9 @@ class GameViewController: UIViewController {
         } else {
             guard let plant1 = getPlantFromTag(toolIndex1!),
                 let plant2 = getPlantFromTag(toolIndex2!) else {
-                print("Error getting plant from tag \(toolIndex1) or tag \(toolIndex2) ")
-                resetSelections()
-                return
+                    print("Error getting plant from tag \(toolIndex1) or tag \(toolIndex2) ")
+                    resetSelections()
+                    return
             }
             
             let newPlant = plantMorpher.morph(plant1, plant2)
@@ -136,7 +137,7 @@ class GameViewController: UIViewController {
             resetSelections()
         }
     }
-
+    
     @IBAction func plantSwipeUp(_ sender: UISwipeGestureRecognizer) {
         guard let tag = sender.view?.tag else {
             print("Error getting tag from sender")
@@ -152,6 +153,42 @@ class GameViewController: UIViewController {
         }
         removePlant(at: tag)
     }
+    
+    @IBAction func plantLongPress(_ sender: UILongPressGestureRecognizer) {
+        guard let tag = sender.view?.tag else {
+            print("Error getting tag from sender")
+            return
+        }
+        
+        let plantView = plantViews[tag]
+        let state = sender.state
+        
+        if state == .began {
+            guard let snapshot = createSnapshot(from: plantView) else {
+                return
+            }
+            
+            let center = plantView.center
+            //            snapshot.center = center
+            snapshot.alpha = 0
+            
+            plantView.addSubview(snapshot)
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                snapshot.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                snapshot.alpha = 0.95
+            })
+        } else if state == .changed {
+            guard let view = sender.view,
+                let snapshot = plantView.subviews.last else {
+                    return
+            }
+            let location = sender.location(in: self.view)
+            snapshot.center = CGPoint(x:view.center.x + (location.x - view.center.x),
+                                      y:view.center.y + (location.y - view.center.y))
+        }
+    }
+    
     
     private func createPlant(_ plant: Plant = Plant(), at plantIndex: Int) {
         let plantView = plantViews[plantIndex]
@@ -273,6 +310,22 @@ class GameViewController: UIViewController {
         default:
             return nil
         }
+    }
+    
+    fileprivate func createSnapshot(from view: UIView) -> UIView? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+        defer { UIGraphicsEndImageContext() }
+
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        view.layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+
+        let snapshot = UIImageView(image: image)
+        snapshot.layer.masksToBounds = false
+
+        return snapshot
     }
 }
 

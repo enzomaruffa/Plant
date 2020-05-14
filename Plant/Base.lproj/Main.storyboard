@@ -141,6 +141,7 @@
                                             <outletCollection property="gestureRecognizers" destination="6aZ-bT-BGu" appends="YES" id="mlF-Oe-O4e"/>
                                             <outletCollection property="gestureRecognizers" destination="uXr-vf-16Z" appends="YES" id="csK-ch-isT"/>
                                             <outletCollection property="gestureRecognizers" destination="F9w-xo-O5U" appends="YES" id="DEX-Au-NoA"/>
+                                            <outletCollection property="gestureRecognizers" destination="5uh-0G-26S" appends="YES" id="3LV-BZ-yTO"/>
                                         </connections>
                                     </view>
                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-Nr-hfm" userLabel="Plant 2">
@@ -247,6 +248,7 @@
                     </view>
                     <connections>
                         <outlet property="copyButton" destination="ycq-TQ-4Rn" id="7Cz-2n-xYU"/>
+                        <outlet property="groundView" destination="ALv-2G-J2d" id="eJv-Mn-UNZ"/>
                         <outlet property="mixButton" destination="lla-Sb-G9x" id="XSA-dK-aU6"/>
                         <outlet property="plant1Container" destination="SGA-eR-f0W" id="NW4-LZ-TYF"/>
                         <outlet property="plant2Container" destination="XeI-Nr-hfm" id="nta-yQ-AnT"/>
@@ -271,6 +273,11 @@
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="EI4-DZ-w2e"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="5uh-0G-26S" userLabel="Plant 1 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="ZTr-4V-IyK"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="B2U-Nw-idl" userLabel="Plant 2 Tap">
                     <connections>
                         <action selector="plantTapped:" destination="9t7-Px-Xe4" id="7dB-L4-bQO"/>
