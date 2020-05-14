@@ -96,49 +96,11 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky" translatesAutoresizingMaskIntoConstraints="NO" id="892-XG-bLV">
                                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ELc-mv-XT6">
-                                        <rect key="frame" x="714" y="15" width="138" height="64"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycq-TQ-4Rn">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="ycq-TQ-4Rn" secondAttribute="height" multiplier="1:1" id="CBD-D9-SxV"/>
-                                                    <constraint firstAttribute="height" constant="64" id="sqA-tR-pI7"/>
-                                                </constraints>
-                                                <state key="normal" title="Copy">
-                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="copyPressed:" destination="9t7-Px-Xe4" eventType="touchUpInside" id="KOD-tR-pDV"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lla-Sb-G9x">
-                                                <rect key="frame" x="74" y="0.0" width="64" height="64"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="lla-Sb-G9x" secondAttribute="height" multiplier="1:1" id="6d2-1g-qH6"/>
-                                                    <constraint firstAttribute="height" constant="64" id="teN-QC-FH9"/>
-                                                </constraints>
-                                                <state key="normal" title="Mix">
-                                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="mixPressed:" destination="9t7-Px-Xe4" eventType="touchUpInside" id="jSp-ty-QyD"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="lla-Sb-G9x" firstAttribute="width" secondItem="lla-Sb-G9x" secondAttribute="height" multiplier="1:1" id="9ay-E0-FQH"/>
-                                            <constraint firstItem="ycq-TQ-4Rn" firstAttribute="width" secondItem="ycq-TQ-4Rn" secondAttribute="height" multiplier="1:1" id="T9f-hW-LsW"/>
-                                        </constraints>
-                                    </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGA-eR-f0W" userLabel="Plant 1">
                                         <rect key="frame" x="44" y="30" width="161.5" height="324"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="6aZ-bT-BGu" appends="YES" id="mlF-Oe-O4e"/>
                                             <outletCollection property="gestureRecognizers" destination="uXr-vf-16Z" appends="YES" id="csK-ch-isT"/>
                                             <outletCollection property="gestureRecognizers" destination="F9w-xo-O5U" appends="YES" id="DEX-Au-NoA"/>
                                             <outletCollection property="gestureRecognizers" destination="5uh-0G-26S" appends="YES" id="3LV-BZ-yTO"/>
@@ -151,7 +113,6 @@
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="R3R-pI-m1K" appends="YES" id="dm6-d9-LAB"/>
                                             <outletCollection property="gestureRecognizers" destination="9Dl-fb-6aH" appends="YES" id="jp4-Ff-abD"/>
-                                            <outletCollection property="gestureRecognizers" destination="B2U-Nw-idl" appends="YES" id="WOL-QU-zdI"/>
                                             <outletCollection property="gestureRecognizers" destination="fNL-Zd-Xhk" appends="YES" id="Y9X-G8-mNs"/>
                                         </connections>
                                     </view>
@@ -160,7 +121,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="pNw-RD-RAt" appends="YES" id="VGV-nd-WVw"/>
                                             <outletCollection property="gestureRecognizers" destination="Pao-wT-9NV" appends="YES" id="Qdx-iV-KKp"/>
                                             <outletCollection property="gestureRecognizers" destination="aSs-hH-PNN" appends="YES" id="4Ni-b9-als"/>
                                             <outletCollection property="gestureRecognizers" destination="lgg-yn-zDk" appends="YES" id="0xx-Tv-bGd"/>
@@ -171,7 +131,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="SWu-mJ-gZ5" appends="YES" id="1bd-Gj-AO7"/>
                                             <outletCollection property="gestureRecognizers" destination="XRk-2P-rwb" appends="YES" id="IGz-VG-k4j"/>
                                             <outletCollection property="gestureRecognizers" destination="jX7-ll-vmI" appends="YES" id="08n-UO-7WL"/>
                                             <outletCollection property="gestureRecognizers" destination="Y3J-yh-ZCM" appends="YES" id="lkl-Ia-qQ8"/>
@@ -182,7 +141,6 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="rd4-Ua-4nT" appends="YES" id="FOO-PL-1yC"/>
                                             <outletCollection property="gestureRecognizers" destination="Cvh-Mc-uxk" appends="YES" id="PL8-ef-hFk"/>
                                             <outletCollection property="gestureRecognizers" destination="ozB-fG-DDP" appends="YES" id="wZM-Py-L0q"/>
                                             <outletCollection property="gestureRecognizers" destination="kk9-YF-aQo" appends="YES" id="geM-G9-Zmf"/>
@@ -195,7 +153,6 @@
                                 <constraints>
                                     <constraint firstItem="XeI-Nr-hfm" firstAttribute="height" secondItem="SGA-eR-f0W" secondAttribute="height" id="5Yt-ud-7Br"/>
                                     <constraint firstItem="aGW-q0-vIg" firstAttribute="centerY" secondItem="SGA-eR-f0W" secondAttribute="centerY" id="5cZ-rK-bVi"/>
-                                    <constraint firstItem="ELc-mv-XT6" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" constant="15" id="7Hq-Ie-2yJ"/>
                                     <constraint firstItem="qkW-kI-zl0" firstAttribute="trailing" secondItem="6i7-yH-BED" secondAttribute="leading" id="BvS-bk-yYy"/>
                                     <constraint firstAttribute="trailing" secondItem="892-XG-bLV" secondAttribute="trailing" id="CFR-7p-bC0"/>
                                     <constraint firstItem="892-XG-bLV" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" id="GaP-cU-HCg"/>
@@ -237,7 +194,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ALv-2G-J2d" secondAttribute="bottom" id="0t6-vW-8nf"/>
-                            <constraint firstItem="ELc-mv-XT6" firstAttribute="trailing" secondItem="muJ-Q4-EtV" secondAttribute="trailing" id="GUi-gE-Bbo"/>
                             <constraint firstItem="8ud-pg-XNC" firstAttribute="leading" secondItem="sO1-ea-NdO" secondAttribute="leading" id="GYt-FM-GyI"/>
                             <constraint firstItem="ALv-2G-J2d" firstAttribute="top" secondItem="SGA-eR-f0W" secondAttribute="bottom" constant="-30" id="Ixx-BC-iZp"/>
                             <constraint firstAttribute="trailing" secondItem="ALv-2G-J2d" secondAttribute="trailing" id="JGa-hS-re8"/>
@@ -252,9 +208,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="8ud-pg-XNC" id="kht-jn-anD"/>
-                        <outlet property="copyButton" destination="ycq-TQ-4Rn" id="7Cz-2n-xYU"/>
                         <outlet property="groundView" destination="ALv-2G-J2d" id="eJv-Mn-UNZ"/>
-                        <outlet property="mixButton" destination="lla-Sb-G9x" id="XSA-dK-aU6"/>
                         <outlet property="plant1Container" destination="SGA-eR-f0W" id="NW4-LZ-TYF"/>
                         <outlet property="plant2Container" destination="XeI-Nr-hfm" id="nta-yQ-AnT"/>
                         <outlet property="plant3Container" destination="aGW-q0-vIg" id="SuZ-Tq-bO7"/>
@@ -263,11 +217,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cD-Ig-gph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="6aZ-bT-BGu" userLabel="Plant 1 Tap">
-                    <connections>
-                        <action selector="plantTapped:" destination="9t7-Px-Xe4" id="3ZJ-ev-MmU"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="uXr-vf-16Z" userLabel="Plant 1 Swipe Up">
                     <connections>
                         <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="2Iu-Tc-Wmg"/>
@@ -283,11 +232,6 @@
                         <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="ZTr-4V-IyK"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <tapGestureRecognizer id="B2U-Nw-idl" userLabel="Plant 2 Tap">
-                    <connections>
-                        <action selector="plantTapped:" destination="9t7-Px-Xe4" id="7dB-L4-bQO"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="R3R-pI-m1K" userLabel="Plant 2 Swipe Up">
                     <connections>
                         <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="XOK-Pt-kHg"/>
@@ -303,11 +247,6 @@
                         <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="Opz-BH-pAP"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <tapGestureRecognizer id="pNw-RD-RAt" userLabel="Plant 3 Tap">
-                    <connections>
-                        <action selector="plantTapped:" destination="9t7-Px-Xe4" id="saR-8T-7VI"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="Pao-wT-9NV" userLabel="Plant 3 Swipe Up">
                     <connections>
                         <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="Tpg-WO-pMX"/>
@@ -323,11 +262,6 @@
                         <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="9cZ-jU-8pM"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <tapGestureRecognizer id="SWu-mJ-gZ5" userLabel="Plant 4 Tap">
-                    <connections>
-                        <action selector="plantTapped:" destination="9t7-Px-Xe4" id="AKE-B0-Fbw"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="XRk-2P-rwb" userLabel="Plant 4 Swipe Up">
                     <connections>
                         <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="vP7-tg-gvW"/>
@@ -343,11 +277,6 @@
                         <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="JNS-hz-nDd"/>
                     </connections>
                 </pongPressGestureRecognizer>
-                <tapGestureRecognizer id="rd4-Ua-4nT" userLabel="Plant 5 Tap">
-                    <connections>
-                        <action selector="plantTapped:" destination="9t7-Px-Xe4" id="rDe-jV-rEr"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="ozB-fG-DDP" userLabel="Plant 5 Swipe Up">
                     <connections>
                         <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="7Zu-wb-jmI"/>
