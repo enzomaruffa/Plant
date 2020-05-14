@@ -43,6 +43,8 @@ class LinearPlantMorpher: PlantMorpher {
         let petalsLastLayerColor = plant1.petalsLastLayerColor.mix(with: plant2.petalsLastLayerColor)
         let petalStrokeColor = plant1.petalStrokeColor.mix(with: plant2.petalStrokeColor)
         
+        let petalWidth = (plant1.petalWidth + plant2.petalWidth)/2.0
+        
         return Plant(stemLengthProportion: stemLengthProportion,
                      stemColor: stemColor,
                      averageStemLayers: averateStemLayers,
@@ -60,7 +62,9 @@ class LinearPlantMorpher: PlantMorpher {
                      petalsInLastLayer: petalsInLastLayer,
                      petalsFirstLayerColor: petalsFirstLayerColor,
                      petalsLastLayerColor: petalsLastLayerColor,
-                     petalStrokeColor: petalStrokeColor)
+                     petalStrokeColor: petalStrokeColor,
+                     petalWidth: petalWidth
+                    )
         
     }
     

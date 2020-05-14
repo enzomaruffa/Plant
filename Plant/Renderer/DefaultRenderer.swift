@@ -91,7 +91,7 @@ class DefaultRenderer: PlantRenderer {
         }
         
         var flowerLayers = [PlantLayer]()
-        let petalDistanceFactor = CGFloat.random(in: -1...1)
+        let petalDistanceFactor = CGFloat(plant.petalWidth)
 
         for branchTip in branchTips {
             let layers = createFlower(at: branchTip, with: plant, andStemHeight: beltHeight, petalDistanceFactor: petalDistanceFactor)
@@ -269,7 +269,7 @@ class DefaultRenderer: PlantRenderer {
         
         petalLayer.animatableFillColor = plantFillColor.cgColor
         petalLayer.fillColor = plantFillColor.withAlphaComponent(0).cgColor
-        petalLayer.lineWidth = 0.7
+        petalLayer.lineWidth = 0.9
         petalLayer.strokeColor = plant.petalStrokeColor.cgColor
         
         return petalLayer

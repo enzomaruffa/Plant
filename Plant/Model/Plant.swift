@@ -69,6 +69,10 @@ class Plant {
     @Ranged(minimum: 4, maximum: 20)
     var petalsInLastLayer: Int = Int.random(in: 4...8)
     
+    /// The petal width
+    @Ranged(minimum: -5, maximum: 5)
+    var petalWidth: Double = Double.random(in: -2...2)
+    
     /// The color the first petal layer has
     var petalsFirstLayerColor: UIColor
     
@@ -118,7 +122,8 @@ class Plant {
                      petalsInLastLayer: Int,
                      petalsFirstLayerColor: UIColor,
                      petalsLastLayerColor: UIColor,
-                     petalStrokeColor: UIColor
+                     petalStrokeColor: UIColor,
+                     petalWidth: Double
                      ) {
         
         self.init()
@@ -140,6 +145,7 @@ class Plant {
         self.petalsFirstLayerColor = petalsFirstLayerColor
         self.petalsLastLayerColor = petalsLastLayerColor
         self.petalStrokeColor = petalStrokeColor
+        self.petalWidth = petalWidth
     }
     
 }

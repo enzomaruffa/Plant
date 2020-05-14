@@ -35,6 +35,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var mixButton: UIButton!
     
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var groundView: UIView!
     
     var currentTool: CurrentTool?
@@ -172,7 +173,7 @@ class GameViewController: UIViewController {
             snapshot.center = center
             snapshot.alpha = 0
             
-            plantView.addSubview(snapshot)
+            backgroundView.addSubview(snapshot)
             
             UIView.animate(withDuration: 0.4, animations: {
                 snapshot.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
@@ -183,7 +184,7 @@ class GameViewController: UIViewController {
                 snapshot.transform = CGAffineTransform(rotationAngle: .pi/16).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
             }, completion: nil)
         } else if state == .changed {
-            guard let snapshot = plantView.subviews.last else {
+            guard let snapshot = backgroundView.subviews.last else {
                     return
             }
             let location = sender.location(in: self.view)
@@ -191,7 +192,7 @@ class GameViewController: UIViewController {
 //                                      y:view.center.y + (location.y - view.center.y))
             snapshot.center = CGPoint(x: location.x, y: location.y - snapshot.frame.height/1.8)
         } else if state == .ended {
-            guard let snapshot = plantView.subviews.last else {
+            guard let snapshot = backgroundView.subviews.last else {
                     return
             }
             
@@ -334,6 +335,8 @@ class GameViewController: UIViewController {
             return plant3
         case 3:
             return plant4
+        case 4:
+            return plant5
         default:
             return nil
         }

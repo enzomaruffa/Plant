@@ -43,6 +43,8 @@ class GaussianPlantMorpher: PlantMorpher {
         let petalsLastLayerColor = plant1.petalsLastLayerColor.gaussianMix(with: plant2.petalsLastLayerColor)
         let petalStrokeColor = plant1.petalStrokeColor.gaussianMix(with: plant2.petalStrokeColor)
         
+        let petalWidth = R.randomClosed(first: plant1.petalWidth, second:  plant2.petalWidth)
+        
         return Plant(stemLengthProportion: stemLengthProportion,
                      stemColor: stemColor,
                      averageStemLayers: averateStemLayers,
@@ -60,7 +62,8 @@ class GaussianPlantMorpher: PlantMorpher {
                      petalsInLastLayer: petalsInLastLayer,
                      petalsFirstLayerColor: petalsFirstLayerColor,
                      petalsLastLayerColor: petalsLastLayerColor,
-                     petalStrokeColor: petalStrokeColor
+                     petalStrokeColor: petalStrokeColor,
+                     petalWidth: petalWidth
                      )
         
         

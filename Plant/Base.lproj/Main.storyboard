@@ -152,6 +152,7 @@
                                             <outletCollection property="gestureRecognizers" destination="R3R-pI-m1K" appends="YES" id="dm6-d9-LAB"/>
                                             <outletCollection property="gestureRecognizers" destination="9Dl-fb-6aH" appends="YES" id="jp4-Ff-abD"/>
                                             <outletCollection property="gestureRecognizers" destination="B2U-Nw-idl" appends="YES" id="WOL-QU-zdI"/>
+                                            <outletCollection property="gestureRecognizers" destination="fNL-Zd-Xhk" appends="YES" id="Y9X-G8-mNs"/>
                                         </connections>
                                     </view>
                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-q0-vIg" userLabel="Plant 3">
@@ -162,6 +163,7 @@
                                             <outletCollection property="gestureRecognizers" destination="pNw-RD-RAt" appends="YES" id="VGV-nd-WVw"/>
                                             <outletCollection property="gestureRecognizers" destination="Pao-wT-9NV" appends="YES" id="Qdx-iV-KKp"/>
                                             <outletCollection property="gestureRecognizers" destination="aSs-hH-PNN" appends="YES" id="4Ni-b9-als"/>
+                                            <outletCollection property="gestureRecognizers" destination="lgg-yn-zDk" appends="YES" id="0xx-Tv-bGd"/>
                                         </connections>
                                     </view>
                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkW-kI-zl0" userLabel="Plant 4">
@@ -172,6 +174,7 @@
                                             <outletCollection property="gestureRecognizers" destination="SWu-mJ-gZ5" appends="YES" id="1bd-Gj-AO7"/>
                                             <outletCollection property="gestureRecognizers" destination="XRk-2P-rwb" appends="YES" id="IGz-VG-k4j"/>
                                             <outletCollection property="gestureRecognizers" destination="jX7-ll-vmI" appends="YES" id="08n-UO-7WL"/>
+                                            <outletCollection property="gestureRecognizers" destination="Y3J-yh-ZCM" appends="YES" id="lkl-Ia-qQ8"/>
                                         </connections>
                                     </view>
                                     <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6i7-yH-BED" userLabel="Plant 5">
@@ -182,6 +185,7 @@
                                             <outletCollection property="gestureRecognizers" destination="rd4-Ua-4nT" appends="YES" id="FOO-PL-1yC"/>
                                             <outletCollection property="gestureRecognizers" destination="Cvh-Mc-uxk" appends="YES" id="PL8-ef-hFk"/>
                                             <outletCollection property="gestureRecognizers" destination="ozB-fG-DDP" appends="YES" id="wZM-Py-L0q"/>
+                                            <outletCollection property="gestureRecognizers" destination="kk9-YF-aQo" appends="YES" id="geM-G9-Zmf"/>
                                         </connections>
                                     </view>
                                 </subviews>
@@ -247,6 +251,7 @@
                         <viewLayoutGuide key="safeArea" id="muJ-Q4-EtV"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="8ud-pg-XNC" id="kht-jn-anD"/>
                         <outlet property="copyButton" destination="ycq-TQ-4Rn" id="7Cz-2n-xYU"/>
                         <outlet property="groundView" destination="ALv-2G-J2d" id="eJv-Mn-UNZ"/>
                         <outlet property="mixButton" destination="lla-Sb-G9x" id="XSA-dK-aU6"/>
@@ -293,6 +298,11 @@
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="7EO-I5-Dfy"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fNL-Zd-Xhk" userLabel="Plant 2 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="Opz-BH-pAP"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="pNw-RD-RAt" userLabel="Plant 3 Tap">
                     <connections>
                         <action selector="plantTapped:" destination="9t7-Px-Xe4" id="saR-8T-7VI"/>
@@ -308,6 +318,11 @@
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="NDI-FN-hVE"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="lgg-yn-zDk" userLabel="Plant 3 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="9cZ-jU-8pM"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="SWu-mJ-gZ5" userLabel="Plant 4 Tap">
                     <connections>
                         <action selector="plantTapped:" destination="9t7-Px-Xe4" id="AKE-B0-Fbw"/>
@@ -323,6 +338,11 @@
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="YjH-Q2-YiZ"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Y3J-yh-ZCM" userLabel="Plant 4 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="JNS-hz-nDd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
                 <tapGestureRecognizer id="rd4-Ua-4nT" userLabel="Plant 5 Tap">
                     <connections>
                         <action selector="plantTapped:" destination="9t7-Px-Xe4" id="rDe-jV-rEr"/>
@@ -338,6 +358,11 @@
                         <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="8AA-be-b2Y"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="kk9-YF-aQo" userLabel="Plant 5 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="Fz7-Cc-12d"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1240.8482142857142" y="108.69565217391305"/>
         </scene>
