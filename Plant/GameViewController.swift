@@ -66,7 +66,7 @@ class GameViewController: UIViewController {
         let location = sender.location(in: self.view)
         //            snapshot.center = CGPoint(x:view.center.x + (location.x - view.center.x),
         //                                      y:view.center.y + (location.y - view.center.y))
-        snapshot.center = CGPoint(x: location.x, y: location.y - snapshot.frame.height/1.8)
+        snapshot.center = CGPoint(x: location.x, y: location.y - snapshot.frame.height/1.9)
     }
     
     fileprivate func checkPlantAction(_ i: Int, _ originalPlant: Plant) {
@@ -86,20 +86,20 @@ class GameViewController: UIViewController {
         }
     }
     
-    fileprivate func animateSnapshot(_ plantView: UIView, _ snapshot: UIView) {
-        let center = plantView.center
-        snapshot.center = center
+    fileprivate func animateSnapshot(_ plantView: UIView, _ snapshot: UIView, _ sender: UILongPressGestureRecognizer) {
         snapshot.alpha = 0
         
         backgroundView.addSubview(snapshot)
+
+        movePlant(sender, snapshot)
         
-        UIView.animate(withDuration: 0.4, animations: {
-            snapshot.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-            snapshot.alpha = 0.75
+        UIView.animate(withDuration: 0.3, animations: {
+            snapshot.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
+            snapshot.alpha = 0.8
         })
         
         UIView.animate(withDuration: 0.2, delay: 0.4, options: [.repeat, .autoreverse], animations: {
-            snapshot.transform = CGAffineTransform(rotationAngle: .pi/16).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
+            snapshot.transform = CGAffineTransform(rotationAngle: .pi/12).concatenating(CGAffineTransform(scaleX: 0.4, y: 0.4))
         }, completion: nil)
     }
     
@@ -116,7 +116,7 @@ class GameViewController: UIViewController {
             guard let snapshot = createSnapshot(from: plantView) else {
                 return
             }
-            animateSnapshot(plantView, snapshot)
+            animateSnapshot(plantView, snapshot, sender)
             
         } else if state == .changed {
             guard let snapshot = backgroundView.subviews.last else {
