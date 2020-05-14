@@ -169,23 +169,50 @@ class GameViewController: UIViewController {
             }
             
             let center = plantView.center
-            //            snapshot.center = center
+            snapshot.center = center
             snapshot.alpha = 0
             
             plantView.addSubview(snapshot)
             
-            UIView.animate(withDuration: 0.25, animations: {
-                snapshot.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-                snapshot.alpha = 0.95
+            UIView.animate(withDuration: 0.4, animations: {
+                snapshot.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+                snapshot.alpha = 0.75
             })
+            
+            UIView.animate(withDuration: 0.2, delay: 0.4, options: [.repeat, .autoreverse], animations: {
+                snapshot.transform = CGAffineTransform(rotationAngle: .pi/16).concatenating(CGAffineTransform(scaleX: 0.5, y: 0.5))
+            }, completion: nil)
         } else if state == .changed {
-            guard let view = sender.view,
-                let snapshot = plantView.subviews.last else {
+            guard let snapshot = plantView.subviews.last else {
                     return
             }
             let location = sender.location(in: self.view)
-            snapshot.center = CGPoint(x:view.center.x + (location.x - view.center.x),
-                                      y:view.center.y + (location.y - view.center.y))
+//            snapshot.center = CGPoint(x:view.center.x + (location.x - view.center.x),
+//                                      y:view.center.y + (location.y - view.center.y))
+            snapshot.center = CGPoint(x: location.x, y: location.y - snapshot.frame.height/1.8)
+        } else if state == .ended {
+            guard let snapshot = plantView.subviews.last else {
+                    return
+            }
+            
+            for i in 0..<plantViews.count {
+                let plantView = plantViews[i]
+                let location =  sender.location(in: plantView)
+                
+                if plantView.point(inside: location, with: nil),
+                    let originalPlant = getPlantFromTag(tag) {
+                    
+                    if let plant = getPlantFromTag(i) {
+                        // mix
+                    } else {
+                        createPlant(originalPlant, at: i)
+                    }
+                    
+                    break
+                }
+            }
+            
+            snapshot.removeFromSuperview()
         }
     }
     
@@ -313,24 +340,37 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func createSnapshot(from view: UIView) -> UIView? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-        defer { UIGraphicsEndImageContext() }
-
-        guard let context = UIGraphicsGetCurrentContext() else {
-            return nil
+//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
+//        defer { UIGraphicsEndImageContext() }
+//
+//        guard let context = UIGraphicsGetCurrentContext() else {
+//            return nil
+//        }
+//        view.layer.render(in: context)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//
+//        let snapshot = UIImageView(image: image)
+//        snapshot.layer.masksToBounds = false
+        
+        let newView = UIView(frame: view.bounds)
+        
+        for sublayer in (view.layer.sublayers ?? []) {
+            if let copiedLayer = NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: sublayer)) as? PlantLayer {
+                newView.layer.addSublayer(copiedLayer)
+            }
+            
+//            if let data = try? NSKeyedArchiver.archivedData(withRootObject: PlantLayer.self, requiringSecureCoding: false),
+//                let copiedLayer = try? NSKeyedUnarchiver.unarchivedObject(ofClass: PlantLayer.self, from: data) {
+//                newView.layer.addSublayer(copiedLayer)
+//            }
         }
-        view.layer.render(in: context)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-
-        let snapshot = UIImageView(image: image)
-        snapshot.layer.masksToBounds = false
-
-        return snapshot
+        
+        return newView
     }
 }
 
 extension CALayer {
-    func addSublayers(_ layers: [CALayer]) {
-        layers.forEach({ self.addSublayer($0) })
+    func addSublayers(_ layers: [CALayer]?) {
+        (layers ?? []).forEach({ self.addSublayer($0) })
     }
 }
