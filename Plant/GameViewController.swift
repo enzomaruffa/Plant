@@ -10,6 +10,13 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    enum Action {
+        case mix
+        case copy
+        case spawn
+        case destroy
+    }
+    
     // MARK: - Variables
     @IBOutlet weak var plant1Container: UIView!
     private var plant1: Plant?
@@ -37,15 +44,80 @@ class GameViewController: UIViewController {
     
     var plantViews = [UIView]()
     
+    let natureOn = true
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         plantViews = [plant1Container, plant2Container, plant3Container, plant4Container, plant5Container]
+        
+        if natureOn {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.nature()
+            }
+        }
+    }
+    
+    func nature() {
+        let actions = [Action.spawn, Action.spawn, Action.spawn, Action.spawn, Action.spawn,
+                       Action.mix, Action.mix, Action.mix,
+                       Action.copy, Action.copy,  Action.copy]
+        
+        var success = false
+        while !success {
+            
+            let action = actions.randomElement() ?? Action.spawn
+            
+            switch action {
+            case .spawn:
+                let randomTag = (0..<plantViews.count).randomElement() ?? 0
+                createPlant(at: randomTag)
+                success = true
+            case .destroy:
+                let randomTag = (0..<plantViews.count).randomElement() ?? 0
+                removePlant(at: randomTag)
+                success = true
+            case .copy:
+                guard let randomTag = randomPlantTag(),
+                    let randomPlant = getPlantFromTag(randomTag) else {
+                    continue
+                }
+                
+                var tags = Array((0..<5))
+                tags.remove(at: randomTag)
+                
+                createPlant(randomPlant, at: tags.randomElement()!)
+                success = true
+            case .mix:
+                
+                guard let randomTag = randomPlantTag(),
+                    let randomPlant = getPlantFromTag(randomTag) else {
+                    continue
+                }
+                
+                var tags = Array((0..<5))
+                tags.remove(at: randomTag)
+                
+                guard let randomTag2 = randomPlantTag(usingList: tags),
+                    let randomPlant2 = getPlantFromTag(randomTag2) else {
+                    continue
+                }
+                
+                tags.removeAll(where: { $0 == randomTag2 })
+                
+                let newPlant = plantMorpher.morph(randomPlant, randomPlant2)
+                createPlant(newPlant, at: tags.randomElement() ?? 0)
+                success = true
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 3.5...5.5)) {
+            self.nature()
+        }
     }
     
     // MARK: - Outlets
-    
     @IBAction func plantSwipeUp(_ sender: UISwipeGestureRecognizer) {
         guard let tag = sender.view?.tag else {
             print("Error getting tag from sender")
@@ -69,20 +141,28 @@ class GameViewController: UIViewController {
         snapshot.center = CGPoint(x: location.x, y: location.y - snapshot.frame.height/1.9)
     }
     
+    fileprivate func copyPlant(to i: Int, _ originalPlant: Plant) {
+        createPlant(originalPlant, at: i)
+    }
+    
+    fileprivate func mixPlant(to emptyTag: Int, originalPlant: Plant, otherPlant: Plant) {
+        let newPlant = plantMorpher.morph(originalPlant, otherPlant)
+        createPlant(newPlant, at: emptyTag)
+    }
+    
     fileprivate func checkPlantAction(_ i: Int, _ originalPlant: Plant) {
         if let plant = getPlantFromTag(i) {
             // mix
             let plantTags = 0..<plantViews.count
-            
-            guard let emptyTag = plantTags.filter({ getPlantFromTag($0) == nil }).shuffled().first else {
+
+            guard let emptyTag = randomNilPlantTag() else {
                 return
             }
             
-            let newPlant = plantMorpher.morph(originalPlant, plant)
-            createPlant(newPlant, at: emptyTag)
+            mixPlant(to: emptyTag, originalPlant: originalPlant, otherPlant: plant)
         } else {
             // copy
-            createPlant(originalPlant, at: i)
+            copyPlant(to: i, originalPlant)
         }
     }
     
@@ -90,8 +170,6 @@ class GameViewController: UIViewController {
         snapshot.alpha = 0
         
         backgroundView.addSubview(snapshot)
-
-        movePlant(sender, snapshot)
         
         UIView.animate(withDuration: 0.3, animations: {
             snapshot.transform = CGAffineTransform(scaleX: 0.4, y: 0.4)
@@ -101,6 +179,8 @@ class GameViewController: UIViewController {
         UIView.animate(withDuration: 0.2, delay: 0.4, options: [.repeat, .autoreverse], animations: {
             snapshot.transform = CGAffineTransform(rotationAngle: .pi/12).concatenating(CGAffineTransform(scaleX: 0.4, y: 0.4))
         }, completion: nil)
+        
+        movePlant(sender, snapshot)
     }
     
     @IBAction func plantLongPress(_ sender: UILongPressGestureRecognizer) {
@@ -120,13 +200,13 @@ class GameViewController: UIViewController {
             
         } else if state == .changed {
             guard let snapshot = backgroundView.subviews.last else {
-                    return
+                return
             }
             movePlant(sender, snapshot)
             
         } else if state == .ended {
             guard let snapshot = backgroundView.subviews.last else {
-                    return
+                return
             }
             
             for i in 0..<plantViews.count {
@@ -230,7 +310,7 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func animateLayers(_ stemLayers: [PlantLayer], _ flowerLayers: [PlantLayer]) {
-        let timePerStemLayer: CGFloat = .pi/15
+        let timePerStemLayer: CGFloat = .pi/18
         
         let totalLayerCount = stemLayers.count
         var currentLayer = 0
@@ -269,30 +349,24 @@ class GameViewController: UIViewController {
         }
     }
     
+    fileprivate func randomNilPlantTag() -> Int? {
+        (0..<5).filter({ getPlantFromTag($0) == nil }).shuffled().first
+    }
+    
+    fileprivate func randomPlantTag(usingList tags: [Int]? = nil) -> Int? {
+        guard let tags = tags else {
+            return (0..<5).filter({ getPlantFromTag($0) != nil }).shuffled().first
+        }
+        return tags.filter({ getPlantFromTag($0) != nil }).shuffled().first
+    }
+    
     fileprivate func createSnapshot(from view: UIView) -> UIView? {
-//        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 0.0)
-//        defer { UIGraphicsEndImageContext() }
-//
-//        guard let context = UIGraphicsGetCurrentContext() else {
-//            return nil
-//        }
-//        view.layer.render(in: context)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//
-//        let snapshot = UIImageView(image: image)
-//        snapshot.layer.masksToBounds = false
-        
         let newView = UIView(frame: view.bounds)
         
         for sublayer in (view.layer.sublayers ?? []) {
             if let copiedLayer = NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: sublayer)) as? PlantLayer {
                 newView.layer.addSublayer(copiedLayer)
             }
-            
-//            if let data = try? NSKeyedArchiver.archivedData(withRootObject: PlantLayer.self, requiringSecureCoding: false),
-//                let copiedLayer = try? NSKeyedUnarchiver.unarchivedObject(ofClass: PlantLayer.self, from: data) {
-//                newView.layer.addSublayer(copiedLayer)
-//            }
         }
         
         return newView
