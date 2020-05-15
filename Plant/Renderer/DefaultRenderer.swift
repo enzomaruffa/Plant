@@ -36,7 +36,8 @@ class DefaultRenderer: PlantRenderer {
          These belts have a size of the max number of layers + 1. It works like this so we can have
          a numeric value of the max height each stem layer can have. We add 1 so we have space for the flowers inside.
          */
-        let beltHeight = frame.height / CGFloat(Plant.maximumStemLayers + 1)
+        let multiplier = CGFloat(1.3)
+        let beltHeight = (frame.height / CGFloat(Plant.maximumStemLayers + 1)) * multiplier
         
         var stemLayers = [PlantLayer]()
         var branchTips = [CGPoint]()

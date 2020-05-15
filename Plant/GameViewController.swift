@@ -44,7 +44,7 @@ class GameViewController: UIViewController {
     
     var plantViews = [UIView]()
     
-    let natureOn = true
+    let natureOn = false
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -57,6 +57,8 @@ class GameViewController: UIViewController {
                 self.nature()
             }
         }
+        
+        spawnClouds()
     }
     
     func nature() {
@@ -114,6 +116,38 @@ class GameViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 3.5...5.5)) {
             self.nature()
+        }
+    }
+    
+    func spawnClouds() {
+        let randomCloudImageName = "cloud-"+(Int.random(in: 1...5).description)
+        guard let randomCloudImage = UIImage(named: randomCloudImageName) else {
+            return
+        }
+        
+        let cloudHeightProportion = CGFloat.random(in: 0.2...0.3)
+        let height = cloudHeightProportion * view.frame.height
+        
+        guard let resizedCloudImage = randomCloudImage.resized(toHeight: height) else {
+            return
+        }
+        
+//        let resizedCloudImage = randomCloudImage
+        let cloudImageView = UIImageView(image: resizedCloudImage)
+        
+        view.addSubview(cloudImageView)
+        
+        let cloudY = view.frame.height * 0.05 + (view.frame.height * CGFloat.random(in: 0...0.3))
+        cloudImageView.transform = CGAffineTransform(translationX: -resizedCloudImage.size.width, y: cloudY)
+        
+        UIView.animate(withDuration: Double.random(in: 25...45), delay: 0, options: [], animations: {
+            cloudImageView.transform = CGAffineTransform(translationX: self.view.frame.width + resizedCloudImage.size.width/2, y: cloudY)
+        }) { (_) in
+            cloudImageView.removeFromSuperview()
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in: 8...30)) {
+            self.spawnClouds()
         }
     }
     
@@ -224,6 +258,33 @@ class GameViewController: UIViewController {
         }
     }
     
+    fileprivate func addRock(intoPlantView plantView: UIView) {
+        let randomRockImageName = "rock-"+(Int.random(in: 1...6).description)
+        guard let randomCloudImage = UIImage(named: randomRockImageName) else {
+            return
+        }
+        
+        let rockHeightProportion = CGFloat.random(in: 0.02...0.07)
+        let height = rockHeightProportion * plantView.frame.height
+        
+        guard let resizedRockImage = randomCloudImage.resized(toHeight: height) else {
+            return
+        }
+        
+        let rockImageView = UIImageView(image: resizedRockImage)
+        
+        plantView.addSubview(rockImageView)
+        
+        let rockY = plantView.frame.height
+        
+        rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width/2, y: rockY)
+        
+        UIView.animate(withDuration: 0.34, delay: 0, options: [.curveEaseOut], animations: {
+            rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width * CGFloat.random(in: -0.3...1.3), y: rockY - plantView.frame.width * CGFloat.random(in: 0.5...1))
+        }) { (_) in
+            rockImageView.removeFromSuperview()
+        }
+    }
     
     private func createPlant(_ plant: Plant = Plant(), at plantIndex: Int) {
         let plantView = plantViews[plantIndex]
@@ -234,6 +295,10 @@ class GameViewController: UIViewController {
         animateLayers(stemLayers, flowerLayers)
         
         plantView.layer.addSublayers(stemLayers + flowerLayers)
+        
+        (0..<Int.random(in: 2...6)).forEach { (_) in
+            addRock(intoPlantView: plantView)
+        }
         
         switch plantIndex {
         case 0:

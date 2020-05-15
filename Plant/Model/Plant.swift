@@ -10,7 +10,7 @@ import UIKit
 
 class Plant {
     
-    static var maximumStemLayers = 5
+    static var maximumStemLayers = 6
     
     /// The lenght of the first stem layer. The lower, the bigger.
     @Ranged(minimum: 1, maximum: 2)
@@ -20,8 +20,8 @@ class Plant {
     var stemColor: UIColor
     
     /// Plant stem layer count
-    @Ranged(minimum: 1, maximum: 5)
-    var stemLayers: Int = Int.random(in: 1...5)
+    @Ranged(minimum: 1, maximum: 6)
+    var stemLayers: Int = Int.random(in: 1...6)
     
     /// The probability of a flower growing from a branch tip.
     @Ranged(minimum: 0.1, maximum: 1)
@@ -69,9 +69,9 @@ class Plant {
     @Ranged(minimum: 4, maximum: 20)
     var petalsInLastLayer: Int = Int.random(in: 4...8)
     
-    /// The petal width
-    @Ranged(minimum: -5, maximum: 5)
-    var petalWidth: Double = Double.random(in: -2...2)
+    /// The petal widthmultiplier
+    @Ranged(minimum: 0, maximum: 5)
+    var petalWidth: Double = Double.random(in: 0.2...2.33)
     
     /// The color the first petal layer has
     var petalsFirstLayerColor: UIColor

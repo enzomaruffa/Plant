@@ -17,7 +17,9 @@ class LinearPlantMorpher: PlantMorpher {
         let stemLengthProportion = (plant1.stemLengthProportion + plant2.stemLengthProportion) / Double(2)
         let stemColor = plant1.stemColor.mix(with: plant2.stemColor)
         
-        let dAverateStemLayers = Float(plant1.stemLayers + plant2.stemLayers) / Float(2)
+        var dAverateStemLayers = Float(plant1.stemLayers + plant2.stemLayers) / Float(2)
+        // Adds a small disturbance so plants that are on the half can have variations
+        dAverateStemLayers += Float.random(in: -0.02...0.02)
         let averateStemLayers = Int(round(dAverateStemLayers))
         
         let flowerProbability = (plant1.flowerProbability + plant2.flowerProbability) / Double(2)

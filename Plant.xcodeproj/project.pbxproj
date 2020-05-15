@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02BDC29246F3F12003BC97D /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BDC28246F3F12003BC97D /* UIImage+.swift */; };
 		C030BB5523FFF3A6008EAE9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB5423FFF3A6008EAE9E /* AppDelegate.swift */; };
 		C030BB5723FFF3A6008EAE9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB5623FFF3A6008EAE9E /* SceneDelegate.swift */; };
 		C030BB5923FFF3A6008EAE9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB5823FFF3A6008EAE9E /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C02BDC28246F3F12003BC97D /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C030BB5123FFF3A6008EAE9E /* Plant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C030BB5423FFF3A6008EAE9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C030BB5623FFF3A6008EAE9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				C030BB80240011EC008EAE9E /* CG+.swift */,
 				C030BB8924004A1D008EAE9E /* UIColor+.swift */,
+				C02BDC28246F3F12003BC97D /* UIImage+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				C030BB81240011EC008EAE9E /* CG+.swift in Sources */,
 				C030BB882400490A008EAE9E /* GaussianPlantMorpher.swift in Sources */,
 				C030BB5923FFF3A6008EAE9E /* ViewController.swift in Sources */,
+				C02BDC29246F3F12003BC97D /* UIImage+.swift in Sources */,
 				C030BB8D24039204008EAE9E /* LinearPlantMorpher.swift in Sources */,
 				C030BB7723FFF3BF008EAE9E /* Plant.swift in Sources */,
 				C030BB7B23FFFA9D008EAE9E /* PlantRenderer.swift in Sources */,
