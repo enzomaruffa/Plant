@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		C02BDC29246F3F12003BC97D /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BDC28246F3F12003BC97D /* UIImage+.swift */; };
+		C02BDC2B246F657B003BC97D /* waltz-of-the-flowers.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC2A246F657B003BC97D /* waltz-of-the-flowers.mp3 */; };
+		C02BDC2D246F6639003BC97D /* SFXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BDC2C246F6639003BC97D /* SFXManager.swift */; };
+		C02BDC30246F66BF003BC97D /* CustomAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BDC2F246F66BF003BC97D /* CustomAudioPlayer.swift */; };
+		C02BDC34246F677D003BC97D /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02BDC33246F677D003BC97D /* Track.swift */; };
+		C02BDC3B246F7846003BC97D /* thud-6.wav in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC35246F7845003BC97D /* thud-6.wav */; };
+		C02BDC3C246F7846003BC97D /* thud-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC36246F7845003BC97D /* thud-1.wav */; };
+		C02BDC3D246F7846003BC97D /* thud-2.wav in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC37246F7845003BC97D /* thud-2.wav */; };
+		C02BDC3E246F7846003BC97D /* thud-4.wav in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC38246F7845003BC97D /* thud-4.wav */; };
+		C02BDC3F246F7846003BC97D /* thud-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC39246F7846003BC97D /* thud-3.wav */; };
+		C02BDC40246F7846003BC97D /* thud-5.wav in Resources */ = {isa = PBXBuildFile; fileRef = C02BDC3A246F7846003BC97D /* thud-5.wav */; };
 		C030BB5523FFF3A6008EAE9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB5423FFF3A6008EAE9E /* AppDelegate.swift */; };
 		C030BB5723FFF3A6008EAE9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB5623FFF3A6008EAE9E /* SceneDelegate.swift */; };
 		C030BB5923FFF3A6008EAE9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030BB5823FFF3A6008EAE9E /* ViewController.swift */; };
@@ -42,6 +52,16 @@
 
 /* Begin PBXFileReference section */
 		C02BDC28246F3F12003BC97D /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		C02BDC2A246F657B003BC97D /* waltz-of-the-flowers.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "waltz-of-the-flowers.mp3"; sourceTree = "<group>"; };
+		C02BDC2C246F6639003BC97D /* SFXManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFXManager.swift; sourceTree = "<group>"; };
+		C02BDC2F246F66BF003BC97D /* CustomAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAudioPlayer.swift; sourceTree = "<group>"; };
+		C02BDC33246F677D003BC97D /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		C02BDC35246F7845003BC97D /* thud-6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thud-6.wav"; sourceTree = "<group>"; };
+		C02BDC36246F7845003BC97D /* thud-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thud-1.wav"; sourceTree = "<group>"; };
+		C02BDC37246F7845003BC97D /* thud-2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thud-2.wav"; sourceTree = "<group>"; };
+		C02BDC38246F7845003BC97D /* thud-4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thud-4.wav"; sourceTree = "<group>"; };
+		C02BDC39246F7846003BC97D /* thud-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thud-3.wav"; sourceTree = "<group>"; };
+		C02BDC3A246F7846003BC97D /* thud-5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "thud-5.wav"; sourceTree = "<group>"; };
 		C030BB5123FFF3A6008EAE9E /* Plant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C030BB5423FFF3A6008EAE9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C030BB5623FFF3A6008EAE9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +106,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C02BDC2E246F66A6003BC97D /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				C02BDC2C246F6639003BC97D /* SFXManager.swift */,
+				C02BDC2F246F66BF003BC97D /* CustomAudioPlayer.swift */,
+				C02BDC33246F677D003BC97D /* Track.swift */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		C030BB4823FFF3A6008EAE9E = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +153,14 @@
 				C030BB8E24080758008EAE9E /* WindShader.metal */,
 				C030BB9024093651008EAE9E /* PlantLayer.swift */,
 				C030BB92240C71E8008EAE9E /* GameViewController.swift */,
+				C02BDC2A246F657B003BC97D /* waltz-of-the-flowers.mp3 */,
+				C02BDC36246F7845003BC97D /* thud-1.wav */,
+				C02BDC37246F7845003BC97D /* thud-2.wav */,
+				C02BDC39246F7846003BC97D /* thud-3.wav */,
+				C02BDC38246F7845003BC97D /* thud-4.wav */,
+				C02BDC3A246F7846003BC97D /* thud-5.wav */,
+				C02BDC35246F7845003BC97D /* thud-6.wav */,
+				C02BDC2E246F66A6003BC97D /* Sound */,
 			);
 			path = Plant;
 			sourceTree = "<group>";
@@ -255,8 +293,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C030BB6123FFF3A8008EAE9E /* LaunchScreen.storyboard in Resources */,
+				C02BDC3C246F7846003BC97D /* thud-1.wav in Resources */,
 				C030BB5E23FFF3A8008EAE9E /* Assets.xcassets in Resources */,
 				C030BB5C23FFF3A6008EAE9E /* Main.storyboard in Resources */,
+				C02BDC3E246F7846003BC97D /* thud-4.wav in Resources */,
+				C02BDC3F246F7846003BC97D /* thud-3.wav in Resources */,
+				C02BDC2B246F657B003BC97D /* waltz-of-the-flowers.mp3 in Resources */,
+				C02BDC3D246F7846003BC97D /* thud-2.wav in Resources */,
+				C02BDC3B246F7846003BC97D /* thud-6.wav in Resources */,
+				C02BDC40246F7846003BC97D /* thud-5.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,12 +330,15 @@
 				C030BB8A24004A1D008EAE9E /* UIColor+.swift in Sources */,
 				C030BB7D23FFFAD3008EAE9E /* DefaultRenderer.swift in Sources */,
 				C030BB7923FFF67B008EAE9E /* RangedWrapper.swift in Sources */,
+				C02BDC34246F677D003BC97D /* Track.swift in Sources */,
 				C030BB5523FFF3A6008EAE9E /* AppDelegate.swift in Sources */,
 				C030BB7F24001107008EAE9E /* PseudorandomGenerator.swift in Sources */,
 				C030BB93240C71E8008EAE9E /* GameViewController.swift in Sources */,
 				C030BB5723FFF3A6008EAE9E /* SceneDelegate.swift in Sources */,
+				C02BDC30246F66BF003BC97D /* CustomAudioPlayer.swift in Sources */,
 				C030BB9124093651008EAE9E /* PlantLayer.swift in Sources */,
 				C030BB83240048BD008EAE9E /* PlantMorpher.swift in Sources */,
+				C02BDC2D246F6639003BC97D /* SFXManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

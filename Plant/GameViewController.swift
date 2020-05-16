@@ -46,6 +46,9 @@ class GameViewController: UIViewController {
     
     let natureOn = false
     
+    let sound = SFXPlayer.shared
+    let isSongPlaying = false
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -279,8 +282,10 @@ class GameViewController: UIViewController {
         
         rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width/2, y: rockY)
         
-        UIView.animate(withDuration: 0.34, delay: 0, options: [.curveEaseOut], animations: {
-            rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width * CGFloat.random(in: -0.3...1.3), y: rockY - plantView.frame.width * CGFloat.random(in: 0.5...1))
+        UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseOut], animations: {
+            rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width * CGFloat.random(in: -0.35...1.35), y: rockY - plantView.frame.width * CGFloat.random(in: 0.56...1)).concatenating(CGAffineTransform(rotationAngle: CGFloat.random(in: .pi/2...(.pi)*2)))
+            rockImageView.alpha = 0
+            
         }) { (_) in
             rockImageView.removeFromSuperview()
         }
@@ -296,7 +301,7 @@ class GameViewController: UIViewController {
         
         plantView.layer.addSublayers(stemLayers + flowerLayers)
         
-        (0..<Int.random(in: 2...6)).forEach { (_) in
+        (0..<Int.random(in: 4...6)).forEach { (_) in
             addRock(intoPlantView: plantView)
         }
         
@@ -314,6 +319,12 @@ class GameViewController: UIViewController {
         default:
             print("Unknown tag \(plantIndex)")
         }
+        
+        
+        if !isSongPlaying {
+            sound.playSong()
+        }
+        sound.playThud()
     }
     
     private func removePlant(at plantIndex: Int) {
