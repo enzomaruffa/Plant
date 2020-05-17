@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+public class GameViewController: UIViewController {
     
     enum Action {
         case mix
@@ -50,7 +50,7 @@ class GameViewController: UIViewController {
     let isSongPlaying = false
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         plantViews = [plant1Container, plant2Container, plant3Container, plant4Container, plant5Container]
@@ -283,9 +283,10 @@ class GameViewController: UIViewController {
         rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width/2, y: rockY)
         
         UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseOut], animations: {
-            rockImageView.transform = CGAffineTransform(translationX: plantView.frame.width * CGFloat.random(in: -0.35...1.35), y: rockY - plantView.frame.width * CGFloat.random(in: 0.56...1)).concatenating(CGAffineTransform(rotationAngle: CGFloat.random(in: .pi/2...(.pi)*2)))
+            rockImageView.transform = CGAffineTransform(
+                translationX: plantView.frame.width * CGFloat.random(in: -0.35...1.35),
+                y: rockY - plantView.frame.width * CGFloat.random(in: 0.56...0.9))
             rockImageView.alpha = 0
-            
         }) { (_) in
             rockImageView.removeFromSuperview()
         }

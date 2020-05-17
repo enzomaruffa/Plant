@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DevelopmentRegion</key>
+	<string>en</string>
+	<key>SwiftVersion</key>
+	<string>5.0</string>
+	<key>Version</key>
+	<string>1.0</string>
+	<key>ContentVersion</key>
+	<string>1.0</string>
+	<key>Name</key>
+	<string>plantaria</string>
+	<key>Description</key>
+	<string>A playgroundbook about plants.</string>
+	<key>ContentIdentifier</key>
+	<string>com.enzomaruffa.plantaria</string>
+	<key>DeploymentTarget</key>
+	<string>ios13.2</string>
+	<key>ImageReference</key>
+	<string>logo.png</string>
+	<key>Chapters</key>
+	<array>
+		<string>Chapter1.playgroundchapter</string>
+	</array>
+</dict>
+</plist>

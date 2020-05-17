@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9t7-Px-Xe4">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="plantaria" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koY-3R-OQF" userLabel="Random1">
+                                <rect key="frame" x="84" y="211.5" width="364" height="181.5"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="fag-hq-GEy" appends="YES" id="yKD-ET-XXS"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L2q-kF-TaX">
+                                <rect key="frame" x="468" y="211.5" width="344" height="181.5"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="zQz-89-eIL" appends="YES" id="kbY-pS-a5J"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozR-xV-IEr">
+                                <rect key="frame" x="84" y="0.0" width="728" height="181.5"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-eQ-dfV">
+                                <rect key="frame" x="425.5" y="181.5" width="45" height="30"/>
+                                <state key="normal" title="Morph"/>
+                                <connections>
+                                    <action selector="morphPlants:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BJq-NY-XTM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ozR-xV-IEr" secondAttribute="trailing" constant="40" id="B6B-gs-0FD"/>
+                            <constraint firstItem="Hiq-eQ-dfV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FvR-XL-VJo"/>
+                            <constraint firstItem="koY-3R-OQF" firstAttribute="height" secondItem="L2q-kF-TaX" secondAttribute="height" id="Fx6-qj-EeM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L2q-kF-TaX" secondAttribute="trailing" constant="40" id="H1N-Ll-SKo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="koY-3R-OQF" secondAttribute="bottom" id="Hi3-hz-IPa"/>
+                            <constraint firstItem="ozR-xV-IEr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="JKk-3Z-3rS"/>
+                            <constraint firstItem="L2q-kF-TaX" firstAttribute="leading" secondItem="koY-3R-OQF" secondAttribute="trailing" constant="20" id="Ovv-U1-QmC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L2q-kF-TaX" secondAttribute="bottom" id="PpE-KS-3EG"/>
+                            <constraint firstItem="ozR-xV-IEr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aek-6i-CJa"/>
+                            <constraint firstItem="Hiq-eQ-dfV" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="dCS-2r-lJa"/>
+                            <constraint firstItem="ozR-xV-IEr" firstAttribute="bottom" secondItem="Hiq-eQ-dfV" secondAttribute="top" id="eMr-q4-Kxp"/>
+                            <constraint firstItem="L2q-kF-TaX" firstAttribute="top" secondItem="Hiq-eQ-dfV" secondAttribute="bottom" id="k9J-8g-MRb"/>
+                            <constraint firstItem="L2q-kF-TaX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="20" id="mO3-hP-Hkp"/>
+                            <constraint firstItem="koY-3R-OQF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="rB5-Z3-qN1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="morphed" destination="ozR-xV-IEr" id="PlX-Wq-4NV"/>
+                        <outlet property="random1" destination="koY-3R-OQF" id="9oL-RA-zKE"/>
+                        <outlet property="random2" destination="L2q-kF-TaX" id="CBp-t8-bvv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fag-hq-GEy">
+                    <connections>
+                        <action selector="random1Pressed:" destination="BYZ-38-t0r" id="5IA-uO-DHd"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="zQz-89-eIL">
+                    <connections>
+                        <action selector="random2Pressed:" destination="BYZ-38-t0r" id="62r-Ws-nUO"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="139" y="130"/>
+        </scene>
+        <!--Book Core Game View Controller-->
+        <scene sceneID="7bJ-5g-Bfp">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="9t7-Px-Xe4" customClass="BookCore_GameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sO1-ea-NdO">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ud-pg-XNC" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky" translatesAutoresizingMaskIntoConstraints="NO" id="892-XG-bLV">
+                                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fHq-Ef-088">
+                                        <rect key="frame" x="40" y="40" width="826" height="324"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGA-eR-f0W" userLabel="Plant 1">
+                                                <rect key="frame" x="0.0" y="0.0" width="161" height="324"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="5uh-0G-26S" appends="YES" id="3LV-BZ-yTO"/>
+                                                    <outletCollection property="gestureRecognizers" destination="uXr-vf-16Z" appends="YES" id="csK-ch-isT"/>
+                                                    <outletCollection property="gestureRecognizers" destination="F9w-xo-O5U" appends="YES" id="DEX-Au-NoA"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-Nr-hfm" userLabel="Plant 2">
+                                                <rect key="frame" x="166" y="0.0" width="161.5" height="324"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="9Dl-fb-6aH" appends="YES" id="jp4-Ff-abD"/>
+                                                    <outletCollection property="gestureRecognizers" destination="fNL-Zd-Xhk" appends="YES" id="Y9X-G8-mNs"/>
+                                                    <outletCollection property="gestureRecognizers" destination="R3R-pI-m1K" appends="YES" id="dm6-d9-LAB"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGW-q0-vIg" userLabel="Plant 3">
+                                                <rect key="frame" x="332.5" y="0.0" width="161" height="324"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="lgg-yn-zDk" appends="YES" id="0xx-Tv-bGd"/>
+                                                    <outletCollection property="gestureRecognizers" destination="aSs-hH-PNN" appends="YES" id="4Ni-b9-als"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Pao-wT-9NV" appends="YES" id="Qdx-iV-KKp"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkW-kI-zl0" userLabel="Plant 4">
+                                                <rect key="frame" x="498.5" y="0.0" width="161.5" height="324"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="Y3J-yh-ZCM" appends="YES" id="lkl-Ia-qQ8"/>
+                                                    <outletCollection property="gestureRecognizers" destination="XRk-2P-rwb" appends="YES" id="IGz-VG-k4j"/>
+                                                    <outletCollection property="gestureRecognizers" destination="jX7-ll-vmI" appends="YES" id="08n-UO-7WL"/>
+                                                </connections>
+                                            </view>
+                                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6i7-yH-BED" userLabel="Plant 5">
+                                                <rect key="frame" x="665" y="0.0" width="161" height="324"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ozB-fG-DDP" appends="YES" id="wZM-Py-L0q"/>
+                                                    <outletCollection property="gestureRecognizers" destination="Cvh-Mc-uxk" appends="YES" id="PL8-ef-hFk"/>
+                                                    <outletCollection property="gestureRecognizers" destination="kk9-YF-aQo" appends="YES" id="geM-G9-Zmf"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="892-XG-bLV" secondAttribute="trailing" id="CFR-7p-bC0"/>
+                                    <constraint firstItem="fHq-Ef-088" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" constant="40" id="Ekc-sh-8VQ"/>
+                                    <constraint firstItem="892-XG-bLV" firstAttribute="top" secondItem="8ud-pg-XNC" secondAttribute="top" id="GaP-cU-HCg"/>
+                                    <constraint firstItem="fHq-Ef-088" firstAttribute="leading" secondItem="8ud-pg-XNC" secondAttribute="leading" constant="40" id="QM0-In-Tgh"/>
+                                    <constraint firstAttribute="trailing" secondItem="fHq-Ef-088" secondAttribute="trailing" constant="30" id="XA9-zN-ueH"/>
+                                    <constraint firstItem="892-XG-bLV" firstAttribute="leading" secondItem="8ud-pg-XNC" secondAttribute="leading" id="bY9-Hm-b2R"/>
+                                    <constraint firstAttribute="bottom" secondItem="892-XG-bLV" secondAttribute="bottom" id="dSD-1z-bpD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALv-2G-J2d" userLabel="Ground View">
+                                <rect key="frame" x="0.0" y="324" width="896" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="H1V-Ur-FQc">
+                                        <rect key="frame" x="0.0" y="0.0" width="896" height="90"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="H1V-Ur-FQc" firstAttribute="leading" secondItem="ALv-2G-J2d" secondAttribute="leading" id="1pe-0F-08Q"/>
+                                    <constraint firstAttribute="height" constant="90" id="EP7-2z-eeh"/>
+                                    <constraint firstAttribute="trailing" secondItem="H1V-Ur-FQc" secondAttribute="trailing" id="b8J-Pd-HId"/>
+                                    <constraint firstItem="H1V-Ur-FQc" firstAttribute="top" secondItem="ALv-2G-J2d" secondAttribute="top" id="mYb-OW-QTH"/>
+                                    <constraint firstAttribute="bottom" secondItem="H1V-Ur-FQc" secondAttribute="bottom" id="tLa-xq-Fwt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ALv-2G-J2d" secondAttribute="bottom" id="0t6-vW-8nf"/>
+                            <constraint firstItem="8ud-pg-XNC" firstAttribute="leading" secondItem="sO1-ea-NdO" secondAttribute="leading" id="GYt-FM-GyI"/>
+                            <constraint firstAttribute="trailing" secondItem="ALv-2G-J2d" secondAttribute="trailing" id="JGa-hS-re8"/>
+                            <constraint firstAttribute="bottom" secondItem="8ud-pg-XNC" secondAttribute="bottom" id="TDR-ut-CqU"/>
+                            <constraint firstItem="ALv-2G-J2d" firstAttribute="leading" secondItem="sO1-ea-NdO" secondAttribute="leading" id="czc-kU-n3j"/>
+                            <constraint firstItem="H1V-Ur-FQc" firstAttribute="centerY" secondItem="fHq-Ef-088" secondAttribute="bottom" constant="5" id="deD-Xa-rIi"/>
+                            <constraint firstItem="8ud-pg-XNC" firstAttribute="top" secondItem="sO1-ea-NdO" secondAttribute="top" id="pSG-TQ-y3G"/>
+                            <constraint firstAttribute="trailing" secondItem="8ud-pg-XNC" secondAttribute="trailing" id="xan-AW-ghe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="muJ-Q4-EtV"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="8ud-pg-XNC" id="kht-jn-anD"/>
+                        <outlet property="groundView" destination="ALv-2G-J2d" id="eJv-Mn-UNZ"/>
+                        <outlet property="plant1Container" destination="SGA-eR-f0W" id="NW4-LZ-TYF"/>
+                        <outlet property="plant2Container" destination="XeI-Nr-hfm" id="nta-yQ-AnT"/>
+                        <outlet property="plant3Container" destination="aGW-q0-vIg" id="SuZ-Tq-bO7"/>
+                        <outlet property="plant4Container" destination="qkW-kI-zl0" id="h4g-uv-jC1"/>
+                        <outlet property="plant5Container" destination="6i7-yH-BED" id="Vpk-lr-Bdt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3cD-Ig-gph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="uXr-vf-16Z" userLabel="Plant 1 Swipe Up">
+                    <connections>
+                        <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="2Iu-Tc-Wmg"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="F9w-xo-O5U" userLabel="Plant 1 Swipe Down">
+                    <connections>
+                        <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="EI4-DZ-w2e"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="5uh-0G-26S" userLabel="Plant 1 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="ZTr-4V-IyK"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="R3R-pI-m1K" userLabel="Plant 2 Swipe Up">
+                    <connections>
+                        <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="XOK-Pt-kHg"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="9Dl-fb-6aH" userLabel="Plant 2 Swipe Down">
+                    <connections>
+                        <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="7EO-I5-Dfy"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="fNL-Zd-Xhk" userLabel="Plant 2 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="Opz-BH-pAP"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="Pao-wT-9NV" userLabel="Plant 3 Swipe Up">
+                    <connections>
+                        <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="Tpg-WO-pMX"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="aSs-hH-PNN" userLabel="Plant 3 Swipe Down">
+                    <connections>
+                        <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="NDI-FN-hVE"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="lgg-yn-zDk" userLabel="Plant 3 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="9cZ-jU-8pM"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="XRk-2P-rwb" userLabel="Plant 4 Swipe Up">
+                    <connections>
+                        <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="vP7-tg-gvW"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="jX7-ll-vmI" userLabel="Plant 4 Swipe Down">
+                    <connections>
+                        <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="YjH-Q2-YiZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="Y3J-yh-ZCM" userLabel="Plant 4 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="JNS-hz-nDd"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="ozB-fG-DDP" userLabel="Plant 5 Swipe Up">
+                    <connections>
+                        <action selector="plantSwipeUp:" destination="9t7-Px-Xe4" id="7Zu-wb-jmI"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="Cvh-Mc-uxk" userLabel="Plant 5 Swipe Down">
+                    <connections>
+                        <action selector="plantSwipeDown:" destination="9t7-Px-Xe4" id="8AA-be-b2Y"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="kk9-YF-aQo" userLabel="Plant 5 Long Press">
+                    <connections>
+                        <action selector="plantLongPress:" destination="9t7-Px-Xe4" id="Fz7-Cc-12d"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1240.8482142857142" y="108.69565217391305"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ground" width="2224" height="265"/>
+        <image name="sky" width="2224" height="1668"/>
+    </resources>
+</document>

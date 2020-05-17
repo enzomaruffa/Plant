@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     let renderer: PlantRenderer = DefaultRenderer()
     let plantMorpher: PlantMorpher = LinearPlantMorpher()
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         random1Pressed(self)
         random2Pressed(self)

@@ -1,8 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SKU-Ls-a2c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Book Core Single Game View Controller-->
+        <scene sceneID="Mj6-wh-caT">
+            <objects>
+                <viewController storyboardIdentifier="SingleGameViewController" id="SKU-Ls-a2c" customClass="BookCore_SingleGameViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uX3-8R-wcu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3p-04-stO" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky" translatesAutoresizingMaskIntoConstraints="NO" id="tQ8-Df-npv">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ouf-Vr-iMo">
+                                        <rect key="frame" x="40" y="40" width="344" height="806"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-Lg-PoV" userLabel="Plant 1">
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="806"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="tQ8-Df-npv" firstAttribute="top" secondItem="C3p-04-stO" secondAttribute="top" id="2CL-7F-NDe"/>
+                                    <constraint firstAttribute="trailing" secondItem="tQ8-Df-npv" secondAttribute="trailing" id="9s6-lz-aNY"/>
+                                    <constraint firstItem="tQ8-Df-npv" firstAttribute="leading" secondItem="C3p-04-stO" secondAttribute="leading" id="UFB-TC-v0u"/>
+                                    <constraint firstAttribute="bottom" secondItem="tQ8-Df-npv" secondAttribute="bottom" id="dXW-53-ukA"/>
+                                    <constraint firstItem="Ouf-Vr-iMo" firstAttribute="leading" secondItem="C3p-04-stO" secondAttribute="leading" constant="40" id="hNA-Ab-3RC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ouf-Vr-iMo" secondAttribute="trailing" constant="30" id="uCm-0m-gli"/>
+                                    <constraint firstItem="Ouf-Vr-iMo" firstAttribute="top" secondItem="C3p-04-stO" secondAttribute="top" constant="40" id="ya8-N3-iqz"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4K-Mf-FhN" userLabel="Ground View">
+                                <rect key="frame" x="0.0" y="806" width="414" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="Rg2-6U-5AA">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Rg2-6U-5AA" firstAttribute="top" secondItem="g4K-Mf-FhN" secondAttribute="top" id="4eG-oM-IDx"/>
+                                    <constraint firstAttribute="height" constant="90" id="5fg-eF-bkJ"/>
+                                    <constraint firstItem="Rg2-6U-5AA" firstAttribute="leading" secondItem="g4K-Mf-FhN" secondAttribute="leading" id="Axx-Rb-0jS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rg2-6U-5AA" secondAttribute="trailing" id="U1f-9m-Ce0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rg2-6U-5AA" secondAttribute="bottom" id="ux4-n8-yNo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="C3p-04-stO" firstAttribute="leading" secondItem="uX3-8R-wcu" secondAttribute="leading" id="3EO-n4-0bA"/>
+                            <constraint firstItem="C3p-04-stO" firstAttribute="top" secondItem="uX3-8R-wcu" secondAttribute="top" id="Eps-G6-yng"/>
+                            <constraint firstAttribute="bottom" secondItem="g4K-Mf-FhN" secondAttribute="bottom" id="LKD-8f-wSo"/>
+                            <constraint firstAttribute="trailing" secondItem="C3p-04-stO" secondAttribute="trailing" id="Oyc-Da-MtE"/>
+                            <constraint firstItem="g4K-Mf-FhN" firstAttribute="leading" secondItem="uX3-8R-wcu" secondAttribute="leading" id="bfa-HY-k0a"/>
+                            <constraint firstAttribute="bottom" secondItem="C3p-04-stO" secondAttribute="bottom" id="gm8-WA-0DI"/>
+                            <constraint firstItem="Rg2-6U-5AA" firstAttribute="centerY" secondItem="Ouf-Vr-iMo" secondAttribute="bottom" constant="5" id="oE5-g8-MMn"/>
+                            <constraint firstAttribute="trailing" secondItem="g4K-Mf-FhN" secondAttribute="trailing" id="rCE-r8-tsr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FMU-Ue-T0k"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="C3p-04-stO" id="xeM-N5-FmQ"/>
+                        <outlet property="groundView" destination="g4K-Mf-FhN" id="KMW-U0-JPZ"/>
+                        <outlet property="plant1Container" destination="aXn-Lg-PoV" id="g2j-wS-3aV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEw-cL-eSl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1241" y="901"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ground" width="2224" height="265"/>
+        <image name="sky" width="2224" height="1668"/>
+    </resources>
 </document>
